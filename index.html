@@ -138,7 +138,7 @@ php engineer server:start</code>
                         </section>
 
                         <section id="routing" class="doc-section">
-                            <h2 class="section-title">Router</h2>
+                            <h2 class="section-title">Routing</h2>
                             <div class="section-block">
                                 <p>
                                     tip: Routes are registered in routes/api.php
@@ -294,7 +294,7 @@ $router->get('/users/{id}' , [TestController::class , 'getUser']);</code>
                         </section>
 
                         <section id="controller" class="doc-section">
-                            <h2 class="section-title">Controllers</h2>
+                            <h2 class="section-title">Controller</h2>
                             <div class="section-block">
                                 <div>
                                     <h3>
@@ -421,6 +421,247 @@ $router->withoutMiddleware(['first' , SecondMiddleware::class])->get($uri, $call
 $router->group(['withoutMiddleware' => 'first'] , function () use ($router){
     //
 });</code>
+                                    </pre>
+                                </div>
+
+                            </div>
+                        </section>
+
+                        <section id="request" class="doc-section">
+                            <h2 class="section-title">Request</h2>
+                            <div class="section-block">
+                                <div>
+                                    <p>
+                                        Fomo's <span class="red-text">Fomo\Request\Request</span> class provides an object-oriented way to interact with the current HTTP request being handled by your application as well as retrieve the input that were submitted with the request.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Accessing The Request
+                                    </h3>
+                                    <p>
+                                        To obtain an instance of the current HTTP request via dependency injection, you should type-hint the Fomo\Request\Request class on your route closure or controller method.
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">namespace App\Controllers;
+
+use Fomo\Request\Request;
+use Fomo\Response\Response;
+
+class UserController extends Controller
+{
+    public function store(Request $request): Response
+    {
+        $name = $request->input('name');
+
+        //
+    }
+}</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Retrieving The Request Path
+                                    </h3>
+                                    <p>
+                                        The path method returns the request's path information. So, if the incoming request is targeted at http://example.com/foo/bar, the path method will return foo/bar:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$uri = $request->path();</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Retrieving The Request URL
+                                    </h3>
+                                    <p>
+                                        To retrieve the full URL for the incoming request you may use the url or fullUrl methods. The url method will return the URL without the query string, while the fullUrl method includes the query string:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$url = $request->url();
+
+$urlWithQueryString = $request->fullUrl();</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Retrieving The Request Method
+                                    </h3>
+                                    <p>
+                                        The <span class="red-text">method</span> method will return the HTTP verb for the request.
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$method = $request->method();</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Headers
+                                    </h3>
+                                    <p>
+                                        You may retrieve a request header from the <span class="red-text">Fomo\Request\Request</span> instance using the <span class="red-text">header</span> method. If the header is not present on the request, <span class="red-text">null</span> will be returned. However, the <span class="red-text">header</span> method accepts an optional second argument that will be returned if the header is not present on the request:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$value = $request->header('X-Header-Name', 'default');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Retrieving Get Input Values
+                                    </h3>
+                                    <p>
+                                        You can access data of type <span class="red-text">GET</span> using the following method
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$name = $request->get('name', 'default');</code>
+                                    </pre>
+                                    <p>
+                                        When working with forms that contain array inputs, use "dot" notation to access the arrays. (Note that to activate this section, you must <span class="red-text">ENABLE</span> the <span class="red-text">request</span> index in the <span class="red-text">config/server.php</span> file in the <span class="red-text">advanceMode</span> presentation)
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$name = $request->get('products.0.name');
+
+$names = $request->get('products.*.name');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Retrieving POST Input Values
+                                    </h3>
+                                    <p>
+                                        You can access data of type <span class="red-text">POST</span> using the following method
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$name = $request->post('name', 'default');</code>
+                                    </pre>
+                                    <p>
+                                        When working with forms that contain array inputs, use "dot" notation to access the arrays. (Note that to activate this section, you must <span class="red-text">ENABLE</span> the <span class="red-text">request</span> index in the <span class="red-text">config/server.php</span> file in the <span class="red-text">advanceMode</span> presentation)
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$name = $request->post('products.0.name');
+
+$names = $request->post('products.*.name');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Retrieving Protocol Version
+                                    </h3>
+                                    <p>
+                                        You can access the <span class="red-text">protocol version</span> using the following method
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$protocolVersion = $request->protocolVersion();</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Retrieving uri
+                                    </h3>
+                                    <p>
+                                        You can access the <span class="red-text">uri</span> using the following method
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$uri = $request->uri();</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Retrieving queryString
+                                    </h3>
+                                    <p>
+                                        You can access the <span class="red-text">queryString</span> using the following method
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$queryString = $request->queryString();</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Retrieving variable
+                                    </h3>
+                                    <p>
+                                        You can access the path input parameters using the following method
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$queryString = $request->variable('id');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> IP Address
+                                    </h3>
+                                    <p>
+                                        The <span class="red-text">ip</span> method may be used to retrieve the IP address of the client that made the request to your application:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">// example 1
+$ipAddress = $request->remoteIp();
+
+// example 2
+$ipAddress = $request->ip();</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Retrieving All Input Data
+                                    </h3>
+                                    <p>
+                                        You may retrieve all of the incoming request's input data as an <span class="red-text">array</span> using the <span class="red-text">all</span> method. This method may be used regardless of whether the incoming request is from an HTML form or is an XHR request:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$input = $request->all();</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Retrieving An Input Value
+                                    </h3>
+                                    <p>
+                                        Using a few simple methods, you may access all of the user input from your <span class="red-text">Fomo\Request\Request</span> instance without worrying about which HTTP verb was used for the request. Regardless of the HTTP verb, the <span class="red-text">input</span> method may be used to retrieve user input:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$name = $request->input('name' , 'default');</code>
+                                    </pre>
+                                    <p>
+                                        When working with forms that contain array inputs, use "dot" notation to access the arrays. (Note that to activate this section, you must <span class="red-text">ENABLE</span> the <span class="red-text">request</span> index in the <span class="red-text">config/server.php</span> file in the <span class="red-text">advanceMode</span> presentation)
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$name = $request->input('products.0.name');
+
+$names = $request->input('products.*.name');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Retrieving A Portion Of The Input Data
+                                    </h3>
+                                    <p>
+                                        If you need to retrieve a subset of the input data, you may use the <span class="red-text">only</span> and <span class="red-text">except</span> methods. Both of these methods accept a <span class="red-text">single</span> array or a dynamic list of arguments:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$input = $request->only(['username', 'password']);
+
+$input = $request->only('username', 'password');
+
+$input = $request->except(['credit_card']);
+
+$input = $request->except('credit_card');</code>
                                     </pre>
                                 </div>
 
