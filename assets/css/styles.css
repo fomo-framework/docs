@@ -12,3 +12,10 @@ code{
 .doc-wrapper{
     padding: 0 !important;
 }
+
+.red-text{
+    color:#eb4432
+}
+pre{
+    margin: 0 !important;
+}
