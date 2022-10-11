@@ -668,6 +668,134 @@ $input = $request->except('credit_card');</code>
                             </div>
                         </section>
 
+                        <section id="response" class="doc-section">
+                            <h2 class="section-title">Response</h2>
+                            <div class="section-block">
+                                <div>
+                                    <p>
+                                        <span class="red-text">Fomo\Response\Response</span> class Fomo An object-oriented way to HTTP Response
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> response
+                                    </h3>
+                                    <p>
+                                        Using the following method, you can create your response in any way you want
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">namespace App\Controllers;
+
+use Fomo\Request\Request;
+use Fomo\Response\Response;
+
+class UserController extends Controller
+{
+    public function store(Request $request): Response
+    {
+        return response(
+            'message' ,
+            200 ,
+            [
+                'Connection' => 'keep-alive' // default
+            ]
+        );
+    }
+}</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> withHeader
+                                    </h3>
+                                    <p>
+                                        Add a header to the response
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">return response()->withHeader('name' , 'value');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> withHeaders
+                                    </h3>
+                                    <p>
+                                        Add some headers to the response
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">return response()->withHeaders([
+    'first' , 'value' ,
+    'second' => 'value'
+]);</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> withStatus
+                                    </h3>
+                                    <p>
+                                        Set response status
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">return response()->withStatus(400);</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> withBody
+                                    </h3>
+                                    <p>
+                                        Set response message
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">return response()->withBody('response message');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> asJson
+                                    </h3>
+                                    <p>
+                                        The <span class="red-text">asJson</span> method will automatically set the <span class="red-text">Content-Type</span> header to <span class="red-text">application/json</span>, as well as convert the given array to JSON using the json_encode PHP function:</p>
+                                    <pre>
+                                        <code class="language-php">return response()->json([
+    'name' => 'Abigail',
+    'state' => 'CA',
+]);</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> asNoContent
+                                    </h3>
+                                    <p>
+                                        The <span class="red-text">asNoContent</span> method will automatically set the <span class="red-text">Content-Type</span> header to <span class="red-text">text/html; charset=utf-8</span>, <span class="red-text">Content-Length</span> header to <span class="red-text">0</span> and also sets the value of the message equal to ''</p>
+                                    <pre>
+                                        <code class="language-php">return response()->asNoContent();</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> asHtml
+                                    </h3>
+                                    <p>
+                                        The <span class="red-text">asHtml</span> method will automatically set the <span class="red-text">Content-Type</span> header to <span class="red-text">text/html; charset=utf-8</span>, <span class="red-text">Content-Length</span> header to <span class="red-text">strlen($html)</span></p>
+                                    <pre>
+                                        <code class="language-php">return response()->asHtml($html , 200);</code>
+                                    </pre>
+                                </div>
+
+                            </div>
+                        </section>
+
                     </div><!--//content-inner-->
                 </div><!--//doc-content-->
                 <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
