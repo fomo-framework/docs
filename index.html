@@ -796,6 +796,323 @@ class UserController extends Controller
                             </div>
                         </section>
 
+                        <section id="validation" class="doc-section">
+                            <h2 class="section-title">Validation</h2>
+                            <div class="section-block">
+                                <div>
+                                    <p>
+                                        Fomo includes a wide variety of convenient <span class="red-text">validation</span> rules that you may apply to data, even providing the ability to validate if values are unique in a given database table. We'll cover each of these validation rules in detail so that you are familiar with all of Fomo's validation features.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Validation Quickstart
+                                    </h3>
+                                    <p>
+                                        Consider, we want to validate people's information:
+                                    </p>
+                                    <h4>
+                                        routes/api.php
+                                    </h4>
+                                    <pre>
+                                        <code class="language-php">/** @var Fomo\Router\Router $router */
+
+$router->post('users' , [\App\Controllers\UserController::class , 'store']);</code>
+                                    </pre>
+
+                                    <h4>
+                                        app/Controllers/UserController.php
+                                    </h4>
+                                    <pre>
+                                        <code class="language-php">namespace App\Controllers;
+
+use Fomo\Request\Request;
+use Fomo\Response\Response;
+use Fomo\Validation\Validation;
+
+class UserController extends Controller
+{
+    public function store(Request $request): Response
+    {
+        $validate = new Validation($request->post() , [
+            'name.firstName' => 'required|string|max:255|min:10',
+            'name.lastName' => 'required|string|max:255|min:10',
+            'age' => 'required|date:Y-m-d',
+        ]);
+
+        if ($validate->hasError()){
+            return response()->asJson([
+                'errors' => $validate->getErrors()
+            ] , 422);
+        }
+
+        return response()->asJson([
+            'message' => 'OK'
+        ]);
+    }
+}
+                                        </code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> hasError
+                                    </h3>
+                                    <p>
+                                        The following method determines whether the information sent has errors or not
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">if ($validate->hasError()){
+    //
+}</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> hasMessage
+                                    </h3>
+                                    <p>
+                                        The following method determines whether the information sent has errors or not
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">if ($validate->hasMessage()){
+    //
+}</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> getMessages
+                                    </h3>
+                                    <p>
+                                        The following method returns an array of all error messages if there is an error, otherwise it returns an empty array.
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">if ($validate->hasError()){
+    return response()->asJson([
+        'errorMessages' => $validate->getErrors()
+    ] , 422);
+}</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> firstMessage
+                                    </h3>
+                                    <p>
+                                        If there is an error, the following method returns only the first error message
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">if ($validate->hasError()){
+    return response()->asJson([
+        'firstErrorMessage' => $validate->firstMessage()
+    ] , 422);
+}</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> getErrors
+                                    </h3>
+                                    <p>
+                                        If there is an error, the following method returns the complete information of that error (including the desired field of the error message only for each field and...)
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">if ($validate->hasError()){
+    return response()->asJson([
+        'errors' => $validate->getErrors()
+    ] , 422);
+}</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> firstErrors
+                                    </h3>
+                                    <p>
+                                        If there is an error, the following method returns the complete information of the first error (including the desired field of the error message only for each field and...)
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">if ($validate->hasError()){
+    return response()->asJson([
+        'firstError' => $validate->firstError()
+    ] , 422);
+}</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Available Validation Rules
+                                    </h3>
+                                    <br>
+                                    <br>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> after:field
+                                        </h6>
+                                        <p>
+                                            The field to be verified must have a value greater than the specified field
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> before:field
+                                        </h6>
+                                        <p>
+                                            The field to be verified must have a value less than the specified field
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> required
+                                        </h6>
+                                        <p>
+                                            The desired field must have a value and cannot be without a value
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> string
+                                        </h6>
+                                        <p>
+                                            The desired field must be of <span class="red-text">string</span> type
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> integer
+                                        </h6>
+                                        <p>
+                                            The desired field must be of <span class="red-text">integer</span> type
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> boolean
+                                        </h6>
+                                        <p>
+                                            The desired field must be of <span class="red-text">boolean</span> type
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> array
+                                        </h6>
+                                        <p>
+                                            The desired field must be of <span class="red-text">array</span> type
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> email
+                                        </h6>
+                                        <p>
+                                            The field under validation must be formatted as an email address.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> regex:pattern
+                                        </h6>
+                                        <p>
+                                            The field under validation must match the given regular expression.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> notRegex:pattern
+                                        </h6>
+                                        <p>
+                                            The field under validation must not match the given regular expression.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> max:value
+                                        </h6>
+                                        <p>
+                                            The field under validation must be less than or equal to a maximum value. Strings, numerics, arrays, and files are evaluated in the same fashion as the size rule.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> min:value
+                                        </h6>
+                                        <p>
+                                            The field under validation must have a minimum value. Strings, numerics, arrays, and files are evaluated in the same fashion as the size rule.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> size:value
+                                        </h6>
+                                        <p>
+                                            The field under validation must have a size matching the given value. For string data, value corresponds to the number of characters. For numeric data, value corresponds to a given integer value (the attribute must also have the numeric or integer rule). For an array, size corresponds to the count of the array.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> date:format
+                                        </h6>
+                                        <p>
+                                            The field under validation must be a valid, date according to the Carbon.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> in:foo,bar,...
+                                        </h6>
+                                        <p>
+                                            The field under validation must be included in the given list of values.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> exists:table,column
+                                        </h6>
+                                        <p>
+                                            The field under validation must exist in a given database table.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h6>
+                                            <span class="red2-text">#</span> unique:table,column
+                                        </h6>
+                                        <p>
+                                            The field under validation must not exist within the given database table.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </section>
+
                     </div><!--//content-inner-->
                 </div><!--//doc-content-->
                 <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
