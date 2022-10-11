@@ -1113,6 +1113,54 @@ class UserController extends Controller
                             </div>
                         </section>
 
+                        <section id="log" class="doc-section">
+                            <h2 class="section-title">Log</h2>
+                            <div class="section-block">
+                                <div>
+                                    <p>
+                                        To help you learn more about what's happening within your application, Fomo provides robust logging services that allow you to log messages to files, the system error log to notify your entire team.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> channel
+                                    </h3>
+                                    <p>
+                                        Set log file name (default: fomo)
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">use Fomo\Log\Log;
+
+Log::channel('security')->emergency('The system is down!');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Writing Log Messages
+                                    </h3>
+                                    <p>
+                                        You may write information to the logs using the Log facade. As previously mentioned, the logger provides the eight logging levels defined in the RFC 5424 specification: emergency, alert, critical, error, warning, notice, info and debug:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">use Fomo\Log\Log;
+
+Log::info($message, $content);
+Log::alert($message, $content);
+Log::critical($message, $content);
+Log::debug($message, $content);
+Log::emergency($message, $content);
+Log::error($message, $content);
+Log::log($message, $content);
+Log::notice($message, $content);
+Log::warning($message, $content);</code>
+                                    </pre>
+                                </div>
+
+                            </div>
+                        </section>
+
                     </div><!--//content-inner-->
                 </div><!--//doc-content-->
                 <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
@@ -1156,9 +1204,6 @@ class UserController extends Controller
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link scrollto" href="#validation">Validation</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#mail">Mail</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link scrollto" href="#log">Log</a>
