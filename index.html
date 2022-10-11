@@ -144,7 +144,7 @@ php engineer server:start</code>
                                     tip: Routes are registered in routes/api.php
                                 </p>
                                 <h3>
-                                    <span class="red2-text">#</span> basic route
+                                    <span class="red2-text">#</span> Basic Route
                                 </h3>
                                 <p>
                                     the most basic Fomo routes accept a URI and a callback, providing a very simple and expressive method of defining routes and behavior without complicated routing configuration files:
@@ -298,7 +298,7 @@ $router->get('/users/{id}' , [TestController::class , 'getUser']);</code>
                             <div class="section-block">
                                 <div>
                                     <h3>
-                                        <span class="red2-text">#</span> make a controller
+                                        <span class="red2-text">#</span> Make A controller
                                     </h3>
                                     <p>
                                         If you want to create a new controller, follow the command below                                </p>
@@ -309,7 +309,7 @@ $router->get('/users/{id}' , [TestController::class , 'getUser']);</code>
 
                                 <div>
                                     <h3>
-                                        <span class="red2-text">#</span> basic controller
+                                        <span class="red2-text">#</span> Basic Controller
                                     </h3>
                                     <p>
                                         Let's take a look at an example of a basic controller. Note that the controller extends the base controller class included with Fomo: <span class="red-text">App\Controllers\Controller</span>:
@@ -329,6 +329,101 @@ class TestController extends Controller
 }</code>
                                     </pre>
                                 </div>
+                            </div>
+                        </section>
+
+                        <section id="middleware" class="doc-section">
+                            <h2 class="section-title">Middleware</h2>
+                            <div class="section-block">
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Make A Middleware
+                                    </h3>
+                                    <p>
+                                        If you want to create a new middleware, follow the command below
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer build:middleware MiddlewareName</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Basic Middleware
+                                    </h3>
+                                    <p>
+                                        Let's take a look at an example of a basic controller. Note that the output of the middleware should be 'true' if all operations are performed correctly, and otherwise it should be a Response class.
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">namespace App\Middlewares;
+
+use Fomo\Request\Request;
+use Fomo\Response\Response;
+
+class TestMiddleware
+{
+    public function handle(Request $request): bool|Response
+    {
+        if ($request->get('token') == 'my-secret-token'){
+            return true;
+        }
+
+        return response()->asJson([
+            'message' => 'ERROR'
+        ]);
+    }
+}</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Assigning Middleware To Routes
+                                    </h3>
+                                    <p>
+                                        If you want to assign the middleware to specific paths, you can use the following methods
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">// Example 1
+$router->middleware('first')->get($uri, $callback);
+
+// Example 2
+$router->middleware(FirstMiddleware::class)->get($uri, $callback);
+
+// Example 3
+$router->middleware(['first' , SecondMiddleware::class])->get($uri, $callback);
+
+// Example 4
+$router->group(['middleware' => 'first'] , function () use ($router){
+    //
+});</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Excluding Middleware
+                                    </h3>
+                                    <p>
+                                        When assigning middleware to a group of routes, you may occasionally need to prevent the middleware from being applied to an individual route within the group. You may accomplish this using the withoutMiddleware method:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">// Example 1
+$router->withoutMiddleware('first')->get($uri, $callback);
+
+// Example 2
+$router->withoutMiddleware(FirstMiddleware::class)->get($uri, $callback);
+
+// Example 3
+$router->withoutMiddleware(['first' , SecondMiddleware::class])->get($uri, $callback);
+
+// Example 4
+$router->group(['withoutMiddleware' => 'first'] , function () use ($router){
+    //
+});</code>
+                                    </pre>
+                                </div>
+
                             </div>
                         </section>
 
