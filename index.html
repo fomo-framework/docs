@@ -1161,6 +1161,129 @@ Log::warning($message, $content);</code>
                             </div>
                         </section>
 
+                        <section id="cache" class="doc-section">
+                            <h2 class="section-title">Cache</h2>
+                            <div class="section-block">
+                                <div>
+                                    <p>
+                                        Some of the data retrieval or processing tasks performed by your application could be CPU intensive or take several seconds to complete. When this is the case, it is common to cache the retrieved data for a time so it can be retrieved quickly on subsequent requests for the same data. The cached data is usually stored in a very fast data store such as Redis.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Cache Usage
+                                    </h3>
+                                </div>
+                                <br>
+                                <br>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> get instance of Cache
+                                    </h6>
+                                    <p>
+                                        You can use the following method to get a <span class="red-text">cache</span> sample                                    </p>
+                                    <pre>
+                                        <code class="language-php">use Fomo\Cache\Cache;
+
+$cache = new Cache();</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> Retrieving Items From The Cache
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">Cache</span> class's <span class="red-text">get</span> method is used to retrieve items from the cache. If the item does not exist in the cache, <span class="red-text">null</span> will be returned. If you wish, you may pass a second argument to the <span class="red-text">get</span> method specifying the default value you wish to be returned if the item doesn't exist:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$value = $cache->get('key');</code>
+                                    </pre>
+                                    <p>
+                                        You may even pass a closure as the default value. The result of the closure will be returned if the specified item does not exist in the cache. Passing a closure allows you to defer the retrieval of default values from a database or other external service:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$value = $cache->get('key' , function () {
+    return DB::table(/* ... */)->get();
+});</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> Checking For Item Existence
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">has</span> method may be used to determine if an item exists in the cache:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">if ($cache->has('key')) {
+    //
+}</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> Retrieve & Store
+                                    </h6>
+                                    <p>
+                                        Sometimes you may wish to retrieve an item from the cache, but also store a default value if the requested item doesn't exist. For example, you may wish to retrieve all users from the cache or, if they don't exist, retrieve them from the database and add them to the cache. You may do this using the <span class="red-text">remember</span> method:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$value = $cache->remember('users', $seconds, function () {
+    return DB::table('users')->get();
+});</code>
+                                    </pre>
+                                    <p>
+                                        If the item does not exist in the cache, the closure passed to the <span class="red-text">remember</span> method will be executed and its result will be placed in the cache.
+                                    </p>
+                                    <br>
+                                    <p>
+                                        You may use the <span class="red-text">rememberForever</span> method to retrieve an item from the cache or store it forever if it does not exist:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$value = $cache->rememberForever('users', $seconds, function () {
+    return DB::table('users')->get();
+});</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> Retrieve & Delete
+                                    </h6>
+                                    <p>
+                                        If you need to retrieve an item from the cache and then delete the item, you may use the <span class="red-text">pull</span> method. Like the <span class="red-text">get</span> method, <span class="red-text">null</span> will be returned if the item does not exist in the cache:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$value = $cache->pull('key');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> Storing Items In The Cache
+                                    </h6>
+                                    <p>
+                                        You may use the <span class="red-text">put</span> method on the <span class="red-text">Cache</span> class to store items in the cache:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$cache->put('key' , 'value' , $seconds = 10);</code>
+                                    </pre>
+                                    <p>
+                                        If the storage time is not passed to the <span class="red-text">put</span> method, the item will be stored indefinitely:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$cache->put('key' , 'value');</code>
+                                    </pre>
+                                </div>
+
+                            </div>
+                        </section>
+
                     </div><!--//content-inner-->
                 </div><!--//doc-content-->
                 <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
