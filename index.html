@@ -1474,6 +1474,174 @@ $env = env('APP_ENV', 'production');</code>
                             </div>
                         </section>
 
+                        <section id="http-client" class="doc-section">
+                            <h2 class="section-title">HTTP Client</h2>
+                            <div class="section-block">
+                                <div>
+                                    <p>
+                                        Fomo provides an expressive, minimal API around the <span class="red-text">Guzzle HTTP client</span>, allowing you to quickly make outgoing HTTP requests to communicate with other web applications. Fomo's wrapper around Guzzle is focused on its most common use cases and a wonderful developer experience.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Making Requests
+                                    </h3>
+                                    <p>
+                                        To make requests, you may use the <span class="red-text">head</span>, <span class="red-text">get</span>, <span class="red-text">post</span>, <span class="red-text">head</span>put, <span class="red-text">patch</span>, and <span class="red-text">delete</span> methods provided by the Http facade. First, let's examine how to make a basic GET request to another URL:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">use Fomo\Http\Http;
+
+$http = new Http();
+$response = $http->get('http://example.com');</code>
+                                    </pre>
+                                    <p>
+                                        The <span class="red-text">get</span> method returns an instance of Fomo\Http\Response, which provides a variety of methods that may be used to inspect the response:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$response->body() : string;
+$response->json($key = null) : array|mixed;
+$response->object() : object;
+$response->status() : int;
+$response->ok() : bool;
+$response->successful() : bool;
+$response->redirect(): bool;
+$response->failed() : bool;
+$response->serverError() : bool;
+$response->clientError() : bool;
+$response->header($header) : string;
+$response->headers() : array;</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Request Data
+                                    </h3>
+                                    <p>
+                                        Of course, it is common when making <span class="red-text">POST</span>, <span class="red-text">PUT</span>, and <span class="red-text">PATCH</span> requests to send additional data with your request, so these methods accept an array of data as their second argument. By default, data will be sent using the <span class="red-text">application/json</span> content type:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$response = $http->post('http://example.com', [
+    'foo' => 'bar'
+]);</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> GET Request Query Parameters
+                                    </h3>
+                                    <p>
+                                        When making <span class="red-text">GET</span> requests, you may either append a query string to the URL directly or pass an array of key / value pairs as the second argument to the <span class="red-text">get</span> method:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$response = $http->get('http://example.com', [
+    'foo' => 'bar'
+]);</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Sending Form URL Encoded Requests
+                                    </h3>
+                                    <p>
+                                        If you would like to send data using the <span class="red-text">application/x-www-form-urlencoded</span> content type, you should call the <span class="red-text">asForm</span> method before making your request:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$response = $http->asForm()->post('http://example.com', [
+    'foo' => 'bar'
+]);</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Sending A Raw Request Body
+                                    </h3>
+                                    <p>
+                                        You may use the <span class="red-text">withBody</span> method if you would like to provide a raw request body when making a request. The content type may be provided via the method's second argument:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$response = $http->withBody(
+    base64_encode($photo), 'image/jpeg'
+)->post('http://example.com');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Multi-Part Requests
+                                    </h3>
+                                    <p>
+                                        If you would like to send files as multi-part requests, you should call the <span class="red-text">attach</span> method before making your request. This method accepts the name of the file and its contents. If needed, you may provide a third argument which will be considered the file's filename:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$response = $http->attach(
+    'attachment', file_get_contents('photo.jpg'), 'photo.jpg'
+)->post('http://example.com');</code>
+                                    </pre>
+                                    <p>
+                                        Instead of passing the raw contents of a file, you may pass a stream resource:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$photo = fopen('photo.jpg', 'r');
+$response = $http->attach(
+    'attachment', $photo, 'photo.jpg'
+)->post('http://example.com');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Headers
+                                    </h3>
+                                    <p>
+                                        Headers may be added to requests using the <span class="red-text">withHeaders</span> method. This <span class="red-text">withHeaders</span> method accepts an array of key / value pairs:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$response = $http->withHeaders([
+    'X-First' => 'foo',
+    'X-Second' => 'bar'
+])->post('http://example.com', [
+    'foo' => 'bar',
+]);</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+
+                                    <h3>
+                                        <span class="red2-text">#</span> Error Handling
+                                    </h3>
+                                    <p>
+                                        Unlike Guzzle's default behavior, Fomo's HTTP client wrapper does not throw exceptions on client or server errors (<span class="red-text">400</span> and <span class="red-text">500</span> level responses from servers). You may determine if one of these errors was returned using the <span class="red-text">isSuccessful</span>successful, <span class="red-text">isClientError</span>, or <span class="red-text">isServerError</span> methods:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">// Determine if the status code is >= 200 and < 300...
+$response->isSuccessful();
+
+// Determine if the status code is >= 400...
+$response->isFailed();
+
+// Determine if the response has a 400 level status code...
+$response->isClientError();
+
+// Determine if the response has a 500 level status code...
+$response->isServerError();
+
+// Immediately execute the given callback if there was a client or server error...
+$response->onError(callable $callback);
+
+</code>
+                                    </pre>
+                                </div>
+
+                            </div>
+                        </section>
+
                     </div><!--//content-inner-->
                 </div><!--//doc-content-->
                 <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
