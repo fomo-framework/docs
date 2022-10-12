@@ -1183,7 +1183,8 @@ Log::warning($message, $content);</code>
                                         <span class="red2-text">#</span> get instance of Cache
                                     </h6>
                                     <p>
-                                        You can use the following method to get a <span class="red-text">cache</span> sample                                    </p>
+                                        You can use the following method to get a <span class="red-text">cache</span> sample
+                                    </p>
                                     <pre>
                                         <code class="language-php">use Fomo\Cache\Cache;
 
@@ -1284,6 +1285,195 @@ $cache = new Cache();</code>
                             </div>
                         </section>
 
+                        <section id="helpers" class="doc-section">
+                            <h2 class="section-title">Helpers</h2>
+                            <div class="section-block">
+                                <div>
+                                    <p>
+                                        Fomo includes a variety of global <span class="red-text">helper</span> PHP functions. Many of these functions are used by the framework itself; however, you are free to use them in your own applications if you find them convenient.
+                                    </p>
+                                </div>
+
+                                <br>
+                                <br>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> appPath()
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">appPath</span> function returns the fully qualified path to your application's <span class="red-text">app</span> directory. You may also use the <span class="red-text">appPath</span> function to generate a fully qualified path to a file relative to the application directory:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$path = appPath();
+
+$path = appPath('Controllers/Controller.php');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> basePath()
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">basePath</span> function returns the fully qualified path to your application's root directory. You may also use the <span class="red-text">basePath</span> function to generate a fully qualified path to a given file relative to the project root directory:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$path = basePath();
+
+$path = basePath('vendor/bin');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> configPath()
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">configPath</span> function returns the fully qualified path to your application's config directory. You may also use the <span class="red-text">configPath</span> function to generate a fully qualified path to a given file within the application's configuration directory:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$path = configPath();
+
+$path = configPath('app.php');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> databasePath()
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">databasePath</span> function returns the fully qualified path to your application's <span class="red-text">database</span> directory. You may also use the <span class="red-text">databasePath</span> function to generate a fully qualified path to a given file within the database directory:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$path = databasePath();
+
+$path = databasePath('Factory.php');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> languagePath()
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">languagePath</span> function returns the fully qualified path to your application's language directory. You may also use the <span class="red-text">languagePath</span> function to generate a fully qualified path to a given file within the directory:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$path = languagePath();
+
+$path = languagePath('validation/en');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> storagePath()
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">storagePath</span> function returns the fully qualified path to your application's storage directory. You may also use the <span class="red-text">storagePath</span> function to generate a fully qualified path to a given file within the directory:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$path = storagePath();
+
+$path = storagePath('logs/fomo.log');</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> config()
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">config</span> function gets the value of a configuration variable. The configuration values may be accessed using "dot" syntax, which includes the name of the file and the option you wish to access. A default value may be specified and is returned if the configuration option does not exist:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$value = config('app.timezone');
+
+$value = config('app.timezone', $default);</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> response()
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">response</span> function creates a response instance or obtains an instance of the response factory:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">return response('Hello World', 200, $headers);
+
+return response()->asJson(['foo' => 'bar'], 200, $headers);</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> auth()
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">auth</span> function returns an authenticator instance. You may use it as an alternative to the Auth class:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$user = auth()->user();</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> elasticsearch()
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">elasticsearch</span> function returns an elasticsearch instance. You may use it as an alternative to the Elasticsearch class:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">return elasticsearch()->msearch(/* set your query */);</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> redis()
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">redis</span> function returns an redis instance. You may use it as an alternative to the Redis class:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">return redis()->get(/*set your key */);</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> mail()
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">mail</span> function returns an mail instance. You may use it as an alternative to the Mail class:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">mail()->body(/*set your body */)->send();</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h6>
+                                        <span class="red2-text">#</span> env()
+                                    </h6>
+                                    <p>
+                                        The <span class="red-text">env</span> function retrieves the value of an environment variable or returns a default value:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">$env = env('APP_ENV');
+
+$env = env('APP_ENV', 'production');</code>
+                                    </pre>
+                                </div>
+
+                            </div>
+                        </section>
+
                     </div><!--//content-inner-->
                 </div><!--//doc-content-->
                 <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
@@ -1341,7 +1531,7 @@ $cache = new Cache();</code>
                                     <a class="nav-link scrollto" href="#cache">Cache</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#helper">Helper</a>
+                                    <a class="nav-link scrollto" href="#helpers">Helpers</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link scrollto" href="#http-client">HTTP client</a>
