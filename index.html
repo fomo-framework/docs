@@ -1642,6 +1642,481 @@ $response->onError(callable $callback);
                             </div>
                         </section>
 
+                        <section id="http-server" class="doc-section">
+                            <h2 class="section-title">HTTP Server</h2>
+                            <div class="section-block">
+                                <div>
+                                    <p>
+                                        An <span class="red-text">HTTP server</span> is a computer (software) program (or even a software component included in an other program) that plays the role of a server in a client–server model by implementing the server part of the HTTP and/or HTTPS network protocol(s).
+
+                                        An HTTP server waits for the incoming client requests (sent by user agents like browsers, web crawlers, etc.) and for each request it answers by replying with requested information, including the sending of the requested web resource, or with an HTTP error message.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> start command
+                                    </h3>
+                                    <p>
+                                        You can use the following command to start the server
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer server:start</code>
+                                    </pre>
+                                    <p>
+                                        With the options <span class="red-text">--watch</span> or <span class="red-text">-w</span>, you can give this command to the server, so that if there are changes in the files, the server will automatically reload in real time.
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer server:start -w
+//or
+php engineer server:start --watch</code>
+                                    </pre>
+                                    <p>
+                                        With the options <span class="red-text">--daemonize</span> or <span class="red-text">-d</span>, you can give this command to the server, so that the server runs in the background
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer server:start -d
+//or
+php engineer server:start --daemonize</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> reload command
+                                    </h3>
+                                    <p>
+                                        You can reload the server with the following command
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer server:reload</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> status command
+                                    </h3>
+                                    <p>
+                                        You can check the status of all processes with the following command
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer server:status</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> stop command
+                                    </h3>
+                                    <p>
+                                        You can stop the server with the following command
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer server:stop</code>
+                                    </pre>
+                                </div>
+
+                            </div>
+                        </section>
+
+                        <section id="queue-server" class="doc-section">
+                            <h2 class="section-title">Queue Server</h2>
+                            <div class="section-block">
+                                <div>
+                                    <p>
+                                        While building your web application, you may have some tasks, such as parsing and storing an uploaded CSV file, that take too long to perform during a typical web request. Thankfully, Fomo allows you to easily create queued jobs that may be processed in the background. By moving time intensive tasks to a queue, your application can respond to web requests with blazing speed and provide a better user experience to your customers.
+                                    </p>
+                                    <p>
+                                        Queues in fomo are supported by <span class="red-text">redis</span>
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> start command
+                                    </h3>
+                                    <p>
+                                        You can use the following command to start the server
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer queue:start</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> status command
+                                    </h3>
+                                    <p>
+                                        You can check the status of all processes with the following command
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer queue:status</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> stop command
+                                    </h3>
+                                    <p>
+                                        You can stop the server with the following command
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer queue:stop</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Generating Job Classes
+                                    </h3>
+                                    <p>
+                                        By default, all of the queueable jobs for your application are stored in the <span class="red-text">app/Jobs</span> directory. If the <span class="red-text">app/Jobs</span> directory doesn't exist, it will be created when you run the <span class="red-text">build:job</span> engineer command:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer build:job JobName</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Class Structure
+                                    </h3>
+                                    <p>
+                                        Job classes are very simple, normally containing only a handle method that is invoked when the job is processed by the queue. To get started, let's take a look at an example job class. In this example, we'll pretend we manage a podcast publishing service and need to process the uploaded podcast files before they are published:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">namespace App\Jobs;
+
+use Fomo\Job\DispatchTrait;
+
+class ProcessPodcast
+{
+    use DispatchTrait;
+
+    public $podcast;
+
+    public function __construct(Podcast $podcast)
+    {
+        $this->podcast = $podcast;
+    }
+
+    public function handle()
+    {
+        // Process podcast...
+    }
+}</code>
+                                    </pre>
+                                    <p>
+                                        The <span class="red-text">handle</span> method is invoked when the job is processed by the queue.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Dispatching Jobs
+                                    </h3>
+                                    <p>
+                                        Once you have written your <span class="red-text">job</span> class, you may <span class="red-text">dispatch</span> it using the <span class="red-text">dispatch</span> method on the job itself. The arguments passed to the <span class="red-text">dispatch</span> method will be given to the job's <span class="red-text">constructor</span>:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">namespace App\Http\Controllers;
+
+use App\Jobs\ProcessPodcast;
+
+class PodcastController extends Controller
+{
+    public function store(Request $request)
+    {
+        $podcast = DB::create(/* ... */);
+
+        // ...
+
+        ProcessPodcast::dispatch($podcast);
+    }
+}</code>
+                                    </pre>
+                                </div>
+
+                            </div>
+                        </section>
+
+                        <section id="scheduling-server" class="doc-section">
+                            <h2 class="section-title">Scheduling Server</h2>
+                            <div class="section-block">
+                                <div>
+                                    <p>
+                                        In the past, you may have written a cron configuration entry for every task you needed to schedule on your server. However, this can quickly become a pain because your job application is no longer in source control and you need to SSH into your server to view existing cron entries or add additional entries.
+                                    </p>
+                                    <p>
+                                        Fomo Command Scheduler offers a new approach to managing scheduled tasks on your server. The scheduler allows you to smoothly and clearly define the schedule of your commands in the Fomo app itself. When using scheduler, you don't need any cron entry on your server and all tasks are done through Fomo. The scheduling of your tasks is defined in the <span class="red-text">tasks</span> method of the <span class="red-text">app/Scheduling/Kernel.php</span> file. To help you get started, a simple example is defined inside the method.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> start command
+                                    </h3>
+                                    <p>
+                                        You can use the following command to start the server
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer scheduling:start</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> status command
+                                    </h3>
+                                    <p>
+                                        You can check the status of all processes with the following command
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer scheduling:status</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> stop command
+                                    </h3>
+                                    <p>
+                                        You can stop the server with the following command
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer scheduling:stop</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Generating Task Classes
+                                    </h3>
+                                    <p>
+                                        By default, all of the scheduling jobs for your application are stored in the <span class="red-text">app/Scheduling/Tasks</span> directory. If the <span class="red-text">app/Scheduling/Tasks</span> directory doesn't exist, it will be created when you run the build:task engineer command:
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">php engineer build:task TaskName</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Class Structure
+                                    </h3>
+                                    <p>
+                                        Task classes are very simple, usually containing only a <span class="red-text">handle</span> method that is called by the scheduler when the task is processed.
+                                    </p>
+                                    <pre>
+                                        <code class="language-php">&lt;?php
+
+namespace App\Scheduling\Tasks;
+
+use Fomo\Database\DB;
+
+class ClearTableTask
+{
+    public function handle(): void
+    {
+        // Process
+    }
+}</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Defining Schedules
+                                    </h3>
+                                    <p>
+                                        You may define all of your scheduled tasks in the schedule method of your application's <span class="red-text">App\Scheduling\Kernel</span> class. To get started, let's take a look at an example. In this example, we will schedule a closure to be called every day at midnight. Within the closure we will execute a database query to clear a table:
+                                    </p>
+                                    <br>
+                                    <h6>
+                                        app/Scheduling/Tasks/ClearTableTask.php
+                                    </h6>
+                                    <pre>
+                                        <code class="language-php">&lt;?php
+
+namespace App\Scheduling\Tasks;
+
+use Fomo\Database\DB;
+
+class ClearTableTask
+{
+    public function handle(): void
+    {
+        DB::table('recent_users')->delete();
+    }
+}</code>
+                                    </pre>
+                                    <br>
+                                    <h6>
+                                        app/Scheduling/Kernel.php
+                                    </h6>
+                                    <pre>
+                                        <code class="language-php">&lt;?php
+
+namespace App\Scheduling;
+
+use App\Scheduling\Tasks\ClearTableTask;
+use Fomo\Scheduling\Scheduler;
+
+class Kernel
+{
+    public function tasks(): void
+    {
+        (new Scheduler())->call(ClearTableTask::class)->daily();
+    }
+}</code>
+                                    </pre>
+                                </div>
+
+                                <div>
+                                    <h3>
+                                        <span class="red2-text">#</span> Schedule Frequency Options
+                                    </h3>
+                                    <p>
+                                        We've already seen a few examples of how you may configure a task to run at specified intervals. However, there are many more task schedule frequencies that you may assign to a task:
+                                    </p>
+                                    <br>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th>Method</th>
+                                                <th>Description</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><code>-&gt;cron('* * * * *');</code></td>
+                                                <td>Run the task on a custom cron schedule</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;everyMinute();</code></td>
+                                                <td>Run the task every minute</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;everyTwoMinutes();</code></td>
+                                                <td>Run the task every two minutes</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;everyThreeMinutes();</code></td>
+                                                <td>Run the task every three minutes</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;everyFourMinutes();</code></td>
+                                                <td>Run the task every four minutes</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;everyFiveMinutes();</code></td>
+                                                <td>Run the task every five minutes</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;everyTenMinutes();</code></td>
+                                                <td>Run the task every ten minutes</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;everyFifteenMinutes();</code></td>
+                                                <td>Run the task every fifteen minutes</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;everyThirtyMinutes();</code></td>
+                                                <td>Run the task every thirty minutes</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;hourly();</code></td>
+                                                <td>Run the task every hour</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;hourlyAt(17);</code></td>
+                                                <td>Run the task every hour at 17 minutes past the hour</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;everyOddHour();</code></td>
+                                                <td>Run the task every odd hour</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;everyTwoHours();</code></td>
+                                                <td>Run the task every two hours</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;everyThreeHours();</code></td>
+                                                <td>Run the task every three hours</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;everyFourHours();</code></td>
+                                                <td>Run the task every four hours</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;everySixHours();</code></td>
+                                                <td>Run the task every six hours</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;daily();</code></td>
+                                                <td>Run the task every day at midnight</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;dailyAt('13:00');</code></td>
+                                                <td>Run the task every day at 13:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;twiceDaily(1, 13);</code></td>
+                                                <td>Run the task daily at 1:00 &amp; 13:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;twiceDailyAt(1, 13, 15);</code></td>
+                                                <td>Run the task daily at 1:15 &amp; 13:15</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;weekly();</code></td>
+                                                <td>Run the task every Sunday at 00:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;weeklyOn(1, '8:00');</code></td>
+                                                <td>Run the task every week on Monday at 8:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;monthly();</code></td>
+                                                <td>Run the task on the first day of every month at 00:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;monthlyOn(4, '15:00');</code></td>
+                                                <td>Run the task every month on the 4th at 15:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;twiceMonthly(1, 16, '13:00');</code></td>
+                                                <td>Run the task monthly on the 1st and 16th at 13:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;lastDayOfMonth('15:00');</code></td>
+                                                <td>Run the task on the last day of the month at 15:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;quarterly();</code></td>
+                                                <td>Run the task on the first day of every quarter at 00:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;yearly();</code></td>
+                                                <td>Run the task on the first day of every year at 00:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>-&gt;yearlyOn(6, 1, '17:00');</code></td>
+                                                <td>Run the task every year on June 1st at 17:00</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+
                     </div><!--//content-inner-->
                 </div><!--//doc-content-->
                 <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
@@ -1704,11 +2179,19 @@ $response->onError(callable $callback);
                                 <li class="nav-item">
                                     <a class="nav-link scrollto" href="#http-client">HTTP client</a>
                                 </li>
+                            </nav>
+                            <li class="nav-item">
+                                <a class="nav-link scrollto">Server</a>
+                            </li>
+                            <nav class="nav doc-sub-menu nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#queue">Queue Server</a>
+                                    <a class="nav-link scrollto" href="#http-server">HTTP</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#scheduling">Scheduling Server</a>
+                                    <a class="nav-link scrollto" href="#queue-server">Queue</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link scrollto" href="#scheduling-server">Scheduling</a>
                                 </li>
                             </nav>
 
