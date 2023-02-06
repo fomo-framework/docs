@@ -161,7 +161,7 @@ class TestController extends Controller
 {
     public function getUsers(Request $request): Response
     {
-        return response()->asJson([
+        return response()->json([
             'message' => 'OK'
         ]);
     }
@@ -218,7 +218,7 @@ class TestController extends Controller
 {
     public function getUser(Request $request, int $id): Response
     {
-        return response()->asJson([
+        return response()->json([
             'userId' => $id
         ]);
     }
@@ -368,7 +368,7 @@ class TestMiddleware
             return true;
         }
 
-        return response()->asJson([
+        return response()->json([
             'message' => 'ERROR'
         ]);
     }
@@ -759,10 +759,10 @@ class UserController extends Controller
 
                                 <div>
                                     <h3>
-                                        <span class="red2-text">#</span> asJson
+                                        <span class="red2-text">#</span> json
                                     </h3>
                                     <p>
-                                        The <span class="red-text">asJson</span> method will automatically set the <span class="red-text">Content-Type</span> header to <span class="red-text">application/json</span>, as well as convert the given array to JSON using the json_encode PHP function:</p>
+                                        The <span class="red-text">json</span> method will automatically set the <span class="red-text">Content-Type</span> header to <span class="red-text">application/json</span>, as well as convert the given array to JSON using the json_encode PHP function:</p>
                                     <pre>
                                         <code class="language-php">return response()->json([
     'name' => 'Abigail',
@@ -773,12 +773,12 @@ class UserController extends Controller
 
                                 <div>
                                     <h3>
-                                        <span class="red2-text">#</span> asNoContent
+                                        <span class="red2-text">#</span> noContent
                                     </h3>
                                     <p>
-                                        The <span class="red-text">asNoContent</span> method will automatically set the <span class="red-text">Content-Type</span> header to <span class="red-text">text/html; charset=utf-8</span>, <span class="red-text">Content-Length</span> header to <span class="red-text">0</span> and also sets the value of the message equal to ''</p>
+                                        The <span class="red-text">noContent</span> method will automatically set the <span class="red-text">Content-Type</span> header to <span class="red-text">text/html; charset=utf-8</span>, <span class="red-text">Content-Length</span> header to <span class="red-text">0</span> and also sets the value of the message equal to ''</p>
                                     <pre>
-                                        <code class="language-php">return response()->asNoContent();</code>
+                                        <code class="language-php">return response()->noContent();</code>
                                     </pre>
                                 </div>
 
@@ -787,9 +787,9 @@ class UserController extends Controller
                                         <span class="red2-text">#</span> asHtml
                                     </h3>
                                     <p>
-                                        The <span class="red-text">asHtml</span> method will automatically set the <span class="red-text">Content-Type</span> header to <span class="red-text">text/html; charset=utf-8</span>, <span class="red-text">Content-Length</span> header to <span class="red-text">strlen($html)</span></p>
+                                        The <span class="red-text">html</span> method will automatically set the <span class="red-text">Content-Type</span> header to <span class="red-text">text/html; charset=utf-8</span>, <span class="red-text">Content-Length</span> header to <span class="red-text">strlen($html)</span></p>
                                     <pre>
-                                        <code class="language-php">return response()->asHtml($html , 200);</code>
+                                        <code class="language-php">return response()->html($html , 200);</code>
                                     </pre>
                                 </div>
 
@@ -842,12 +842,12 @@ class UserController extends Controller
         ]);
 
         if ($validate->hasError()){
-            return response()->asJson([
+            return response()->json([
                 'errors' => $validate->getErrors()
             ] , 422);
         }
 
-        return response()->asJson([
+        return response()->json([
             'message' => 'OK'
         ]);
     }
@@ -893,7 +893,7 @@ class UserController extends Controller
                                     </p>
                                     <pre>
                                         <code class="language-php">if ($validate->hasError()){
-    return response()->asJson([
+    return response()->json([
         'errorMessages' => $validate->getErrors()
     ] , 422);
 }</code>
@@ -909,7 +909,7 @@ class UserController extends Controller
                                     </p>
                                     <pre>
                                         <code class="language-php">if ($validate->hasError()){
-    return response()->asJson([
+    return response()->json([
         'firstErrorMessage' => $validate->firstMessage()
     ] , 422);
 }</code>
@@ -925,7 +925,7 @@ class UserController extends Controller
                                     </p>
                                     <pre>
                                         <code class="language-php">if ($validate->hasError()){
-    return response()->asJson([
+    return response()->json([
         'errors' => $validate->getErrors()
     ] , 422);
 }</code>
@@ -941,7 +941,7 @@ class UserController extends Controller
                                     </p>
                                     <pre>
                                         <code class="language-php">if ($validate->hasError()){
-    return response()->asJson([
+    return response()->json([
         'firstError' => $validate->firstError()
     ] , 422);
 }</code>
@@ -1405,7 +1405,7 @@ $value = config('app.timezone', $default);</code>
                                     <pre>
                                         <code class="language-php">return response('Hello World', 200, $headers);
 
-return response()->asJson(['foo' => 'bar'], 200, $headers);</code>
+return response()->json(['foo' => 'bar'], 200, $headers);</code>
                                     </pre>
                                 </div>
 
