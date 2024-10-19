@@ -19,7 +19,11 @@ Fomo is very fast, simple and for use in large scales (Of course, it still has f
 
 ## Contributing
 
-Thank you for considering contributing to the Fomo framework! The contribution guide can be found in the [Fomo documentation](https://github.com/fomo-framework).
+The process to build to this documentation site is very simple and straightforward. First you'll need to make sure `composer` is installed and run `composer install` to install the dependencies.
+
+Any new changes to content can be edited in the `content.md` file. After you have updated the content, you need to run `php build_docs.php` to generate the new `index.html` file. You can then open the `index.html` file in your browser to see the changes.
+
+Thank you for considering contributing to the Fomo framework! The contribution guide can be found in the [Fomo documentation](https://fomo-framework.github.io/docs/).
 
 ## Security Vulnerabilities
 

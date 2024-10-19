@@ -32,125 +32,58 @@
                 <img src="assets/images/logo.png" width="300px">
             </div><!--//doc-header-->
             <div class="doc-body row">
-                <div class="doc-content col-md-9 col-12 order-1">
+				<div class="doc-content col-md-9 col-12 order-1">
                     <div class="content-inner">
+						<section class="doc-section">
+							<div></div></section><section class="doc-section"><h1 class="section-title" id="getting-started">Getting Started</h1><div class="section-block">
+</div></section><section class="doc-section"><h2 class="section-title" id="introduction">Introduction</h2><div class="section-block">
+<p>Fomo is a web application framework based.</p>
+<p>We tried to implement Fomo in the simplest possible way so that anyone can use it.</p>
+<p>Fomo supports the following:</p>
+<ul>
+<li>Simple, fast routing engine.</li>
+<li>Processing work in the background.</li>
+<li>Queued job processing.</li>
+<li>And more...</li>
+</ul>
+<p>Fomo is very fast, simple and for use in large scale projects.</p>
+</div></section><section class="doc-section"><h2 class="section-title" id="why-fomo">Why Fomo?</h2><div class="section-block">
+<p>Here's 3 reason why you should use Fomo:</p>
+<ul>
+<li>Fomo is very simple (less to learn and train others on).</li>
+<li>Fomo is very fast (uses fewer resources to do the same thing).</li>
+<li>Fomo is another tool that developers can use to solve their complex problems in a simple way.</li>
+</ul>
+</div></section><section class="doc-section"><h2 class="section-title" id="first-fomo-project">First Fomo Project</h2><div class="section-block">
+<h4>Tip</h4>
+<p>We have not tested Fomo on Windows. It may work just fine, but you may encounter problems installing and running Fomo. If there is a problem, send us the error message <a href="https://github.com/Fomo-framework/Fomo/issues">in a Github issue</a>.</p>
+<p>Before creating your first Fomo project, you should ensure that your local machine has PHP, Composer, Swoole, Posix, Pcntl, and Redis installed.</p>
+<p>After you have installed those dependencies, you may create a new Fomo project via the Composer create-project command:</p>
+<pre><code>composer create-project Fomo/Fomo example</code></pre>
+<p>After creating the project, start the Fomo development server using Mr. Engineer:</p>
+<pre><code>cd example
 
-                        <section id="introduction" class="doc-section">
-                            <h2 class="section-title">Introduction</h2>
-                            <div class="section-block">
-                                <p>
-                                    Fomo is a web application framework based.
-                                </p>
-                                <p>
-                                    We tried to implement FOMO in the simplest possible way so that anyone can use it.
-                                </p>
-                                <p>
-                                    Fomo supports the following:
-                                </p>
-                                <ul>
-                                    <li>Simple, fast routing engine.</li>
-                                    <li>Processing work in the background</li>
-                                    <li>Queued job processing,and....</li>
-                                </ul>
-                                <p>
-                                    Fomo is very fast, simple and for use in large scales (Of course, it still has flaws
-                                    grin)
-                                </p>
-                            </div>
-                        </section>
-
-                        <section id="way-fomo" class="doc-section">
-                            <h2 class="section-title">way Fomo ?</h2>
-                            <div class="section-block">
-                                <p>
-                                    for three reasons:
-                                </p>
-                                <ul>
-                                    <li>Fomo is very simple</li>
-                                    <li>Fomo is very fast</li>
-                                    <li>And we are trying to create different possibilities for developers</li>
-                                </ul>
-                            </div>
-                        </section>
-
-                        <section id="first-fomo-project" class="doc-section">
-                            <h2 class="section-title">First Fomo Project</h2>
-                            <div class="section-block">
-                                <div class="callout-block callout-warning">
-                                    <div class="icon-holder">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                    </div><!--//icon-holder-->
-                                    <div class="content">
-                                        <h4 class="callout-title">tip</h4>
-                                        <p>We have not run FOMO on operating systems (Windows) so far, and you may encounter problems installing FOMO on these two operating systems. (If there is a problem, send us the error message)</p>
-                                    </div><!--//content-->
-                                </div>
-                                <p>
-                                    Before creating your first Fomo project, you should ensure that your local machine has <span class="red-text">PHP</span>, <span class="red-text">Composer</span>, <span class="red-text">Swoole</span>, <span class="red-text">Posix</span>, <span class="red-text">Pcntl</span> installed.
-                                </p>
-                                <br>
-                                <p>
-                                    After you have installed PHP and Composer, you may create a new Fomo project via the Composer <span class="red-text">create-project</span> command:
-                                </p>
-                                <pre>
-                                    <code class="language-php">composer create-project fomo/fomo example</code>
-                                </pre>
-                                <p>
-                                    After creating the project, start the Fomo local development server using Mr. Engineer:
-                                </p>
-                                <pre>
-                                    <code class="language-php">cd example
-
-php engineer server:start</code>
-                                </pre>
-                                <p>
-                                    Once you have started the development server by Mr. Engineer, your application will be accessible in your web browser at http://localhost:9000.
-                                </p>
-                            </div>
-                        </section>
-
-                        <section id="mr-engineer" class="doc-section">
-                            <h2 class="section-title">Mr. Engineer</h2>
-                            <div class="section-block">
-                                <p>
-                                    In Fomo, the boss is Mr. Engineer.
-                                    It means that all orders are issued by Mr. Engineer
-                                </p>
-                                <p>
-                                    Commands like:
-                                </p>
-                                <ul>
-                                    <li>Start the HTTP server</li>
-                                    <li>Start the queue server</li>
-                                    <li>Start the scheduling server</li>
-                                    <li>Making controller, resource, middleware, service, job, task and...</li>
-                                    <li>Run tests</li>
-                                    <li>And more...</li>
-                                </ul>
-                                <p>
-                                    To see the commands that Mr. Engineer can issue
-                                    You can run the following command
-                                </p>
-                                <pre>
-                                    <code class="language-php">php engineer list</code>
-                                </pre>
-                            </div>
-                        </section>
-
-                        <section id="routing" class="doc-section">
-                            <h2 class="section-title">Routing</h2>
-                            <div class="section-block">
-                                <p>
-                                    tip: Routes are registered in routes/api.php
-                                </p>
-                                <h3>
-                                    <span class="red2-text">#</span> Basic Route
-                                </h3>
-                                <p>
-                                    the most basic Fomo routes accept a URI and a callback, providing a very simple and expressive method of defining routes and behavior without complicated routing configuration files:
-                                </p>
-                                <pre>
-                                    <code class="language-php">&lt;?php
+php engineer server:start</code></pre>
+<p>Once you have started the development server via the engineer command, your application will be accessible in your web browser at <a href="http://localhost:9000">http://localhost:9000</a>.</p>
+</div></section><section class="doc-section"><h2 class="section-title" id="mr-engineer">Mr. Engineer</h2><div class="section-block">
+<p>In Fomo, the boss is Mr. Engineer. In a funny, but serious way all orders are issued by Mr. Engineer to help keep your projects architecture consistent.</p>
+<p>Commands like:</p>
+<ul>
+<li>Start the HTTP server</li>
+<li>Start the queue server</li>
+<li>Start the scheduling server</li>
+<li>Making controller, resource, middleware, service, job, task, etc...</li>
+<li>Run tests</li>
+<li>And more...</li>
+</ul>
+<p>To see the commands that Mr. Engineer can issue You can run the following command</p>
+<pre><code>php engineer list</code></pre>
+</div></section><section class="doc-section"><h1 class="section-title" id="the-basics">The Basics</h1><div class="section-block">
+</div></section><section class="doc-section"><h2 class="section-title" id="routing">Routing</h2><div class="section-block">
+<p>tip: Routes are registered in routes/api.php</p>
+<h3>Basic Route</h3>
+<p>the most basic Fomo routes accept a URI and a callback, providing a very simple and expressive method of defining routes and behavior without complicated routing configuration files:</p>
+<pre><code class="language-php">&lt;?php
 
 namespace App\Controllers;
 
@@ -161,53 +94,32 @@ class TestController extends Controller
 {
     public function getUsers(Request $request): Response
     {
-        return response()->json([
-            'message' => 'OK'
+        return response()-&gt;json([
+            'message' =&gt; 'OK'
         ]);
     }
-}</code>
-                                </pre>
-                                <p>
-                                    tip: Note in getUsers method, if there is no mandatory parameter, the first entry can be deleted
-                                </p>
-                                <pre>
-                                    <code class="language-php">&lt;?php
+}</code></pre>
+<p>tip: Note in getUsers method, if there is no mandatory parameter, the first entry can be deleted</p>
+<pre><code class="language-php">&lt;?php
 
 /** @var Fomo\Router\Router $router */
 
 use App\Controllers\TestController;
 
-$router->get('/users' , [TestController::class , 'getUsers']);</code>
-                                </pre>
-                                <h3>
-                                    <span class="red2-text">#</span> Available Router Methods
-                                </h3>
-                                <pre>
-                                    <code class="language-php">$router->get($uri , $callback);
-$router->post($uri , $callback);
-$router->put($uri , $callback);
-$router->patch($uri , $callback);
-$router->delete($uri , $callback);
-$router->head($uri , $callback);
-$router->any($uri , $callback);</code>
-                                </pre>
-                                <h3>
-                                    <span class="red2-text">#</span> Route Parameters
-                                </h3>
-                                <div class="callout-block callout-warning">
-                                    <div class="icon-holder">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="callout-title">tip</h4>
-                                        <p>If you use parameters, note that it must be the first callback input of the Request class. And the parameters must be received exactly in the same order as specified in the uri (we will explain more later)</p>
-                                    </div>
-                                </div>
-                                <p>
-                                    Sometimes you will need to capture segments of the URI within your route. For example, you may need to capture a user's ID from the URL. You may do so by defining route parameters:
-                                </p>
-                                <pre>
-                                    <code class="language-php">&lt;?php
+$router-&gt;get('/users' , [TestController::class , 'getUsers']);</code></pre>
+<h3>Available Router Methods</h3>
+<pre><code class="language-php">$router-&gt;get($uri , $callback);
+$router-&gt;post($uri , $callback);
+$router-&gt;put($uri , $callback);
+$router-&gt;patch($uri , $callback);
+$router-&gt;delete($uri , $callback);
+$router-&gt;head($uri , $callback);
+$router-&gt;any($uri , $callback);</code></pre>
+<h3>Route Parameters</h3>
+<h4>tip</h4>
+<p>If you use parameters, note that it must be the first callback input of the Request class. And the parameters must be received exactly in the same order as specified in the uri (we will explain more later)</p>
+<p>Sometimes you will need to capture segments of the URI within your route. For example, you may need to capture a user's ID from the URL. You may do so by defining route parameters:</p>
+<pre><code class="language-php">&lt;?php
 
 namespace App\Controllers;
 
@@ -218,103 +130,48 @@ class TestController extends Controller
 {
     public function getUser(Request $request, int $id): Response
     {
-        return response()->json([
-            'userId' => $id
+        return response()-&gt;json([
+            'userId' =&gt; $id
         ]);
     }
-}</code>
-                                </pre>
-
-                                <pre>
-                                    <code class="language-php">&lt;?php
+}</code></pre>
+<pre><code class="language-php">&lt;?php
 
 /** @var Fomo\Router\Router $router */
 
 use App\Controllers\TestController;
 
-$router->get('/users/{id}' , [TestController::class , 'getUser']);</code>
-                                </pre>
-
-                                <h3>
-                                    <span class="red2-text">#</span> Group
-                                </h3>
-
-                                <p>
-                                    You can add a middleware or a prefix to several paths or delete a middleware for several paths
-                                </p>
-
-                                <pre>
-                                    <code class="language-php">$router->group([
-    'middleware' => ['first' , 'second'] , // 'middleware' => 'first'
-    'prefix' => 'admin' ,
-    'withoutMiddleware' => 'first' ,
-] , function () use ($router) {
+$router-&gt;get('/users/{id}' , [TestController::class , 'getUser']);</code></pre>
+<h3>Group</h3>
+<p>You can add a middleware or a prefix to several paths or delete a middleware for several paths</p>
+<pre><code class="language-php">$router-&gt;group([
+    'middleware' =&gt; ['first' , 'second'] , // 'middleware' =&gt; 'first'
+    'prefix' =&gt; 'admin' ,
+    'withoutMiddleware' =&gt; 'first' ,
+], function () use ($router) {
     //
-});</code>
-                                </pre>
-
-                                <h3>
-                                    <span class="red2-text">#</span> Middleware
-                                </h3>
-
-                                <p>
-                                    To assign middleware to all routes within a group, you may use the middleware method before defining the group. Middleware are executed in the order they are listed in the array:
-                                </p>
-
-                                <pre>
-                                    <code class="language-php">$router->middleware(['first', 'second'])->group([] , function () use ($router) {
+    }
+);</code></pre>
+<h3>Middleware</h3>
+<p>To assign middleware to all routes within a group, you may use the middleware method before defining the group. Middleware are executed in the order they are listed in the array:</p>
+<pre><code class="language-php">$router-&gt;middleware(['first', 'second'])-&gt;group([] , function () use ($router) {
     //
-});</code>
-                                </pre>
-                                <h3>
-                                    <span class="red2-text">#</span> Without Middleware
-                                </h3>
-
-                                <p>
-                                    If the desired middleware exists in the path, it will be deleted
-                                </p>
-
-                                <pre>
-                                    <code class="language-php">$router->withoutMiddleware('first')->get($uri, $callback);</code>
-                                </pre>
-                                <h3>
-                                    <span class="red2-text">#</span> Prefix
-                                </h3>
-
-                                <p>
-                                    The prefix method may be used to prefix each route in the group with a given URI. For example, you may want to prefix all route URIs within the group with admin:
-                                </p>
-
-                                <pre>
-                                    <code class="language-php">$router->prefix('admin')->group([] , function () use ($router) {
-    $router->get('users' , $callback); // Matches The "/admin/users" URL
-});</code>
-                                </pre>
-                            </div>
-                        </section>
-
-                        <section id="controller" class="doc-section">
-                            <h2 class="section-title">Controller</h2>
-                            <div class="section-block">
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Make A controller
-                                    </h3>
-                                    <p>
-                                        If you want to create a new controller, follow the command below                                </p>
-                                    <pre>
-                                        <code class="language-php">php engineer build:controller ControllerName</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Basic Controller
-                                    </h3>
-                                    <p>
-                                        Let's take a look at an example of a basic controller. Note that the controller extends the base controller class included with Fomo: <span class="red-text">App\Controllers\Controller</span>:
-                                    <pre>
-                                        <code class="language-php">namespace App\Controllers;
+});</code></pre>
+<h3>Without Middleware</h3>
+<p>If the desired middleware exists in the path, it will be deleted</p>
+<pre><code class="language-php">$router-&gt;withoutMiddleware('first')-&gt;get($uri, $callback);</code></pre>
+<h3>Prefix</h3>
+<p>The prefix method may be used to prefix each route in the group with a given URI. For example, you may want to prefix all route URIs within the group with admin:</p>
+<pre><code class="language-php">$router-&gt;prefix('admin')-&gt;group([] , function () use ($router) {
+$router-&gt;get('users' , $callback); // Matches The "/admin/users" URL
+});</code></pre>
+</div></section><section class="doc-section"><h2 class="section-title" id="controller">Controller</h2><div class="section-block">
+<h3>Make A controller</h3>
+<p>If you want to create a new controller, follow the command below</p>
+<pre><code>php engineer build:controller ControllerName</code></pre>
+<h3>Basic Controller</h3>
+<p>Let's take a look at an example of a basic controller. Note that the controller extends the base controller class included with Fomo: App\Controllers\Controller:</p>
+<pre><code class="language-php">namespace App\Controllers;
 
 use Fomo\Request\Request;
 use Fomo\Response\Response;
@@ -324,38 +181,16 @@ class TestController extends Controller
     public function store(Request $request): Response
     {
         // insert data
-        return response()->asNoContent();
+        return response()-&gt;asNoContent();
     }
-}</code>
-                                    </pre>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section id="middleware" class="doc-section">
-                            <h2 class="section-title">Middleware</h2>
-                            <div class="section-block">
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Make A Middleware
-                                    </h3>
-                                    <p>
-                                        If you want to create a new middleware, follow the command below
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer build:middleware MiddlewareName</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Basic Middleware
-                                    </h3>
-                                    <p>
-                                        Let's take a look at an example of a basic controller. Note that the output of the middleware should be 'true' if all operations are performed correctly, and otherwise it should be a Response class.
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">namespace App\Middlewares;
+}</code></pre>
+</div></section><section class="doc-section"><h2 class="section-title" id="middleware">Middleware</h2><div class="section-block">
+<h3>Make A Middleware</h3>
+<p>If you want to create a new middleware, follow the command below</p>
+<pre><code class="language-php">php engineer build:middleware MiddlewareName</code></pre>
+<h3>Basic Middleware</h3>
+<p>Let's take a look at an example of a basic controller. Note that the output of the middleware should be 'true' if all operations are performed correctly, and otherwise it should be a Response class.</p>
+<pre><code class="language-php">namespace App\Middlewares;
 
 use Fomo\Request\Request;
 use Fomo\Response\Response;
@@ -364,87 +199,50 @@ class TestMiddleware
 {
     public function handle(Request $request): bool|Response
     {
-        if ($request->get('token') == 'my-secret-token'){
+        if ($request-&gt;get('token') == 'my-secret-token'){
             return true;
         }
 
-        return response()->json([
-            'message' => 'ERROR'
+        return response()-&gt;json([
+            'message' =&gt; 'ERROR'
         ]);
     }
-}</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Assigning Middleware To Routes
-                                    </h3>
-                                    <p>
-                                        If you want to assign the middleware to specific paths, you can use the following methods
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">// Example 1
-$router->middleware('first')->get($uri, $callback);
+}</code></pre>
+<h3>Assigning Middleware To Routes</h3>
+<p>If you want to assign the middleware to specific paths, you can use the following methods</p>
+<pre><code class="language-php">// Example 1
+$router-&gt;middleware('first')-&gt;get($uri, $callback);
 
 // Example 2
-$router->middleware(FirstMiddleware::class)->get($uri, $callback);
+$router-&gt;middleware(FirstMiddleware::class)-&gt;get($uri, $callback);
 
 // Example 3
-$router->middleware(['first' , SecondMiddleware::class])->get($uri, $callback);
+$router-&gt;middleware(['first' , SecondMiddleware::class])-&gt;get($uri, $callback);
 
 // Example 4
-$router->group(['middleware' => 'first'] , function () use ($router){
-    //
-});</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Excluding Middleware
-                                    </h3>
-                                    <p>
-                                        When assigning middleware to a group of routes, you may occasionally need to prevent the middleware from being applied to an individual route within the group. You may accomplish this using the withoutMiddleware method:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">// Example 1
-$router->withoutMiddleware('first')->get($uri, $callback);
+$router-&gt;group(['middleware' =&gt; 'first'] , function () use ($router){
+//
+});</code></pre>
+<h3>Excluding Middleware</h3>
+<p>When assigning middleware to a group of routes, you may occasionally need to prevent the middleware from being applied to an individual route within the group. You may accomplish this using the withoutMiddleware method:</p>
+<pre><code class="language-php">// Example 1
+$router-&gt;withoutMiddleware('first')-&gt;get($uri, $callback);
 
 // Example 2
-$router->withoutMiddleware(FirstMiddleware::class)->get($uri, $callback);
+$router-&gt;withoutMiddleware(FirstMiddleware::class)-&gt;get($uri, $callback);
 
 // Example 3
-$router->withoutMiddleware(['first' , SecondMiddleware::class])->get($uri, $callback);
+$router-&gt;withoutMiddleware(['first' , SecondMiddleware::class])-&gt;get($uri, $callback);
 
 // Example 4
-$router->group(['withoutMiddleware' => 'first'] , function () use ($router){
-    //
-});</code>
-                                    </pre>
-                                </div>
-
-                            </div>
-                        </section>
-
-                        <section id="request" class="doc-section">
-                            <h2 class="section-title">Request</h2>
-                            <div class="section-block">
-                                <div>
-                                    <p>
-                                        Fomo's <span class="red-text">Fomo\Request\Request</span> class provides an object-oriented way to interact with the current HTTP request being handled by your application as well as retrieve the input that were submitted with the request.
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Accessing The Request
-                                    </h3>
-                                    <p>
-                                        To obtain an instance of the current HTTP request via dependency injection, you should type-hint the Fomo\Request\Request class on your route closure or controller method.
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">namespace App\Controllers;
+$router-&gt;group(['withoutMiddleware' =&gt; 'first'] , function () use ($router){
+//
+});</code></pre>
+</div></section><section class="doc-section"><h2 class="section-title" id="request">Request</h2><div class="section-block">
+<p>Fomo's Fomo\Request\Request class provides an object-oriented way to interact with the current HTTP request being handled by your application as well as retrieve the input that were submitted with the request.</p>
+<h3>Accessing The Request</h3>
+<p>To obtain an instance of the current HTTP request via dependency injection, you should type-hint the Fomo\Request\Request class on your route closure or controller method.</p>
+<pre><code class="language-php">namespace App\Controllers;
 
 use Fomo\Request\Request;
 use Fomo\Response\Response;
@@ -453,239 +251,82 @@ class UserController extends Controller
 {
     public function store(Request $request): Response
     {
-        $name = $request->input('name');
+        $name = $request-&gt;input('name');
 
         //
     }
-}</code>
-                                    </pre>
-                                </div>
+}</code></pre>
+<h3>Retrieving The Request Path</h3>
+<p>The path method returns the request's path information. So, if the incoming request is targeted at <a href="http://example.com/foo/bar">http://example.com/foo/bar</a>, the path method will return foo/bar:</p>
+<pre><code class="language-php">$uri = $request-&gt;path();</code></pre>
+<h3>Retrieving The Request URL</h3>
+<p>To retrieve the full URL for the incoming request you may use the url or fullUrl methods. The url method will return the URL without the query string, while the fullUrl method includes the query string:</p>
+<pre><code class="language-php">$url = $request-&gt;url();
 
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Retrieving The Request Path
-                                    </h3>
-                                    <p>
-                                        The path method returns the request's path information. So, if the incoming request is targeted at http://example.com/foo/bar, the path method will return foo/bar:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$uri = $request->path();</code>
-                                    </pre>
-                                </div>
+$urlWithQueryString = $request-&gt;fullUrl();</code></pre>
+<h3>Retrieving The Request Method</h3>
+<p>The method method will return the HTTP verb for the request.</p>
+<pre><code class="language-php">$method = $request-&gt;method();</code></pre>
+<h3>Headers</h3>
+<p>You may retrieve a request header from the Fomo\Request\Request instance using the header method. If the header is not present on the request, null will be returned. However, the header method accepts an optional second argument that will be returned if the header is not present on the request:</p>
+<pre><code class="language-php">$value = $request-&gt;header('X-Header-Name', 'default');</code></pre>
+<h3>Retrieving Get Input Values</h3>
+<p>You can access data of type GET using the following method</p>
+<pre><code class="language-php">$name = $request-&gt;get('name', 'default');</code></pre>
+<p>When working with forms that contain array inputs, use &quot;dot&quot; notation to access the arrays. (Note that to activate this section, you must ENABLE the request index in the config/server.php file in the advanceMode presentation)</p>
+<pre><code class="language-php">$name = $request-&gt;get('products.0.name');
 
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Retrieving The Request URL
-                                    </h3>
-                                    <p>
-                                        To retrieve the full URL for the incoming request you may use the url or fullUrl methods. The url method will return the URL without the query string, while the fullUrl method includes the query string:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$url = $request->url();
+$names = $request-&gt;get('products.*.name');</code></pre>
+<h3>Retrieving POST Input Values</h3>
+<p>You can access data of type POST using the following method</p>
+<pre><code class="language-php">$name = $request-&gt;post('name', 'default');</code></pre>
+<p>When working with forms that contain array inputs, use &quot;dot&quot; notation to access the arrays. (Note that to activate this section, you must ENABLE the request index in the config/server.php file in the advanceMode presentation)</p>
+<pre><code class="language-php">$name = $request-&gt;post('products.0.name');
 
-$urlWithQueryString = $request->fullUrl();</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Retrieving The Request Method
-                                    </h3>
-                                    <p>
-                                        The <span class="red-text">method</span> method will return the HTTP verb for the request.
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$method = $request->method();</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Headers
-                                    </h3>
-                                    <p>
-                                        You may retrieve a request header from the <span class="red-text">Fomo\Request\Request</span> instance using the <span class="red-text">header</span> method. If the header is not present on the request, <span class="red-text">null</span> will be returned. However, the <span class="red-text">header</span> method accepts an optional second argument that will be returned if the header is not present on the request:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$value = $request->header('X-Header-Name', 'default');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Retrieving Get Input Values
-                                    </h3>
-                                    <p>
-                                        You can access data of type <span class="red-text">GET</span> using the following method
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$name = $request->get('name', 'default');</code>
-                                    </pre>
-                                    <p>
-                                        When working with forms that contain array inputs, use "dot" notation to access the arrays. (Note that to activate this section, you must <span class="red-text">ENABLE</span> the <span class="red-text">request</span> index in the <span class="red-text">config/server.php</span> file in the <span class="red-text">advanceMode</span> presentation)
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$name = $request->get('products.0.name');
-
-$names = $request->get('products.*.name');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Retrieving POST Input Values
-                                    </h3>
-                                    <p>
-                                        You can access data of type <span class="red-text">POST</span> using the following method
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$name = $request->post('name', 'default');</code>
-                                    </pre>
-                                    <p>
-                                        When working with forms that contain array inputs, use "dot" notation to access the arrays. (Note that to activate this section, you must <span class="red-text">ENABLE</span> the <span class="red-text">request</span> index in the <span class="red-text">config/server.php</span> file in the <span class="red-text">advanceMode</span> presentation)
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$name = $request->post('products.0.name');
-
-$names = $request->post('products.*.name');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Retrieving Protocol Version
-                                    </h3>
-                                    <p>
-                                        You can access the <span class="red-text">protocol version</span> using the following method
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$protocolVersion = $request->protocolVersion();</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Retrieving uri
-                                    </h3>
-                                    <p>
-                                        You can access the <span class="red-text">uri</span> using the following method
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$uri = $request->uri();</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Retrieving queryString
-                                    </h3>
-                                    <p>
-                                        You can access the <span class="red-text">queryString</span> using the following method
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$queryString = $request->queryString();</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Retrieving variable
-                                    </h3>
-                                    <p>
-                                        You can access the path input parameters using the following method
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$queryString = $request->variable('id');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> IP Address
-                                    </h3>
-                                    <p>
-                                        The <span class="red-text">ip</span> method may be used to retrieve the IP address of the client that made the request to your application:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">// example 1
-$ipAddress = $request->remoteIp();
+$names = $request-&gt;post('products.*.name');</code></pre>
+<h3>Retrieving Protocol Version</h3>
+<p>You can access the protocol version using the following method</p>
+<pre><code class="language-php">$protocolVersion = $request-&gt;protocolVersion();</code></pre>
+<h3>Retrieving uri</h3>
+<p>You can access the uri using the following method</p>
+<pre><code class="language-php">$uri = $request-&gt;uri();</code></pre>
+<h3>Retrieving queryString</h3>
+<p>You can access the queryString using the following method</p>
+<pre><code class="language-php">$queryString = $request-&gt;queryString();</code></pre>
+<h3>Retrieving variable</h3>
+<p>You can access the path input parameters using the following method</p>
+<pre><code class="language-php">$queryString = $request-&gt;variable('id');</code></pre>
+<h3>IP Address</h3>
+<p>The ip method may be used to retrieve the IP address of the client that made the request to your application:</p>
+<pre><code class="language-php">// example 1
+$ipAddress = $request-&gt;remoteIp();
 
 // example 2
-$ipAddress = $request->ip();</code>
-                                    </pre>
-                                </div>
+$ipAddress = $request-&gt;ip();</code></pre>
+<h3>Retrieving All Input Data</h3>
+<p>You may retrieve all of the incoming request's input data as an array using the all method. This method may be used regardless of whether the incoming request is from an HTML form or is an XHR request:</p>
+<pre><code class="language-php">$input = $request-&gt;all();</code></pre>
+<h3>Retrieving An Input Value</h3>
+<p>Using a few simple methods, you may access all of the user input from your Fomo\Request\Request instance without worrying about which HTTP verb was used for the request. Regardless of the HTTP verb, the input method may be used to retrieve user input:</p>
+<pre><code class="language-php">$name = $request-&gt;input('name' , 'default');</code></pre>
+<p>When working with forms that contain array inputs, use &quot;dot&quot; notation to access the arrays. (Note that to activate this section, you must ENABLE the request index in the config/server.php file in the advanceMode presentation)</p>
+<pre><code class="language-php">$name = $request-&gt;input('products.0.name');
 
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Retrieving All Input Data
-                                    </h3>
-                                    <p>
-                                        You may retrieve all of the incoming request's input data as an <span class="red-text">array</span> using the <span class="red-text">all</span> method. This method may be used regardless of whether the incoming request is from an HTML form or is an XHR request:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$input = $request->all();</code>
-                                    </pre>
-                                </div>
+$names = $request-&gt;input('products.*.name');</code></pre>
+<h3>Retrieving A Portion Of The Input Data</h3>
+<p>If you need to retrieve a subset of the input data, you may use the only and except methods. Both of these methods accept a single array or a dynamic list of arguments:</p>
+<pre><code class="language-php">$input = $request-&gt;only(['username', 'password']);
 
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Retrieving An Input Value
-                                    </h3>
-                                    <p>
-                                        Using a few simple methods, you may access all of the user input from your <span class="red-text">Fomo\Request\Request</span> instance without worrying about which HTTP verb was used for the request. Regardless of the HTTP verb, the <span class="red-text">input</span> method may be used to retrieve user input:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$name = $request->input('name' , 'default');</code>
-                                    </pre>
-                                    <p>
-                                        When working with forms that contain array inputs, use "dot" notation to access the arrays. (Note that to activate this section, you must <span class="red-text">ENABLE</span> the <span class="red-text">request</span> index in the <span class="red-text">config/server.php</span> file in the <span class="red-text">advanceMode</span> presentation)
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$name = $request->input('products.0.name');
+$input = $request-&gt;only('username', 'password');
 
-$names = $request->input('products.*.name');</code>
-                                    </pre>
-                                </div>
+$input = $request-&gt;except(['credit_card']);
 
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Retrieving A Portion Of The Input Data
-                                    </h3>
-                                    <p>
-                                        If you need to retrieve a subset of the input data, you may use the <span class="red-text">only</span> and <span class="red-text">except</span> methods. Both of these methods accept a <span class="red-text">single</span> array or a dynamic list of arguments:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$input = $request->only(['username', 'password']);
-
-$input = $request->only('username', 'password');
-
-$input = $request->except(['credit_card']);
-
-$input = $request->except('credit_card');</code>
-                                    </pre>
-                                </div>
-
-                            </div>
-                        </section>
-
-                        <section id="response" class="doc-section">
-                            <h2 class="section-title">Response</h2>
-                            <div class="section-block">
-                                <div>
-                                    <p>
-                                        <span class="red-text">Fomo\Response\Response</span> class Fomo An object-oriented way to HTTP Response
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> response
-                                    </h3>
-                                    <p>
-                                        Using the following method, you can create your response in any way you want
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">namespace App\Controllers;
+$input = $request-&gt;except('credit_card');</code></pre>
+</div></section><section class="doc-section"><h2 class="section-title" id="response">Response</h2><div class="section-block">
+<p>Fomo\Response\Response class Fomo An object-oriented way to HTTP Response</p>
+<h3>response</h3>
+<p>Using the following method, you can create your response in any way you want</p>
+<pre><code class="language-php">namespace App\Controllers;
 
 use Fomo\Request\Request;
 use Fomo\Response\Response;
@@ -698,134 +339,48 @@ class UserController extends Controller
             'message' ,
             200 ,
             [
-                'Connection' => 'keep-alive' // default
+                'Connection' =&gt; 'keep-alive' // default
             ]
         );
     }
-}</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> withHeader
-                                    </h3>
-                                    <p>
-                                        Add a header to the response
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">return response()->withHeader('name' , 'value');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> withHeaders
-                                    </h3>
-                                    <p>
-                                        Add some headers to the response
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">return response()->withHeaders([
+}</code></pre>
+<h3>withHeader</h3>
+<p>Add a header to the response</p>
+<pre><code class="language-php">return response()-&gt;withHeader('name' , 'value');</code></pre>
+<h3>withHeaders</h3>
+<p>Add some headers to the response</p>
+<pre><code class="language-php">return response()-&gt;withHeaders([
     'first' , 'value' ,
-    'second' => 'value'
-]);</code>
-                                    </pre>
-                                </div>
+    'second' =&gt; 'value'
+]);</code></pre>
+<h3>withStatus</h3>
+<p>Set response status</p>
+<pre><code class="language-php">return response()-&gt;withStatus(400);</code></pre>
+<h3>withBody</h3>
+<p>Set response message</p>
+<pre><code class="language-php">return response()-&gt;withBody('response message');</code></pre>
+<h3>json</h3>
+<p>The json method will automatically set the Content-Type header to application/json, as well as convert the given array to JSON using the json_encode PHP function:</p>
+<pre><code class="language-php">return response()-&gt;json([
+    'name' =&gt; 'Abigail',
+    'state' =&gt; 'CA',
+]);</code></pre>
+<h3>noContent</h3>
+<p>The noContent method will automatically set the Content-Type header to text/html; charset=utf-8, Content-Length header to 0 and also sets the value of the message equal to ''</p>
+<pre><code class="language-php">return response()-&gt;noContent();</code></pre>
+<h3>asHtml</h3>
+<p>The html method will automatically set the Content-Type header to text/html; charset=utf-8, Content-Length header to strlen($html)</p>
+<pre><code class="language-php">return response()-&gt;html($html , 200);</code></pre>
+</div></section><section class="doc-section"><h2 class="section-title" id="validation">Validation</h2><div class="section-block">
+<p>Fomo includes a wide variety of convenient validation rules that you may apply to data, even providing the ability to validate if values are unique in a given database table. We'll cover each of these validation rules in detail so that you are familiar with all of Fomo's validation features.</p>
+<h3>Validation Quickstart</h3>
+<p>Consider, we want to validate people's information:</p>
+<h4>routes/api.php</h4>
+<pre><code class="language-php">/** @var Fomo\Router\Router $router */
 
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> withStatus
-                                    </h3>
-                                    <p>
-                                        Set response status
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">return response()->withStatus(400);</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> withBody
-                                    </h3>
-                                    <p>
-                                        Set response message
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">return response()->withBody('response message');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> json
-                                    </h3>
-                                    <p>
-                                        The <span class="red-text">json</span> method will automatically set the <span class="red-text">Content-Type</span> header to <span class="red-text">application/json</span>, as well as convert the given array to JSON using the json_encode PHP function:</p>
-                                    <pre>
-                                        <code class="language-php">return response()->json([
-    'name' => 'Abigail',
-    'state' => 'CA',
-]);</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> noContent
-                                    </h3>
-                                    <p>
-                                        The <span class="red-text">noContent</span> method will automatically set the <span class="red-text">Content-Type</span> header to <span class="red-text">text/html; charset=utf-8</span>, <span class="red-text">Content-Length</span> header to <span class="red-text">0</span> and also sets the value of the message equal to ''</p>
-                                    <pre>
-                                        <code class="language-php">return response()->noContent();</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> asHtml
-                                    </h3>
-                                    <p>
-                                        The <span class="red-text">html</span> method will automatically set the <span class="red-text">Content-Type</span> header to <span class="red-text">text/html; charset=utf-8</span>, <span class="red-text">Content-Length</span> header to <span class="red-text">strlen($html)</span></p>
-                                    <pre>
-                                        <code class="language-php">return response()->html($html , 200);</code>
-                                    </pre>
-                                </div>
-
-                            </div>
-                        </section>
-
-                        <section id="validation" class="doc-section">
-                            <h2 class="section-title">Validation</h2>
-                            <div class="section-block">
-                                <div>
-                                    <p>
-                                        Fomo includes a wide variety of convenient <span class="red-text">validation</span> rules that you may apply to data, even providing the ability to validate if values are unique in a given database table. We'll cover each of these validation rules in detail so that you are familiar with all of Fomo's validation features.
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Validation Quickstart
-                                    </h3>
-                                    <p>
-                                        Consider, we want to validate people's information:
-                                    </p>
-                                    <h4>
-                                        routes/api.php
-                                    </h4>
-                                    <pre>
-                                        <code class="language-php">/** @var Fomo\Router\Router $router */
-
-$router->post('users' , [\App\Controllers\UserController::class , 'store']);</code>
-                                    </pre>
-
-                                    <h4>
-                                        app/Controllers/UserController.php
-                                    </h4>
-                                    <pre>
-                                        <code class="language-php">namespace App\Controllers;
+$router-&gt;post('users' , [\App\Controllers\UserController::class , 'store']);</code></pre>
+<h4>app/Controllers/UserController.php</h4>
+<pre><code class="language-php">namespace App\Controllers;
 
 use Fomo\Request\Request;
 use Fomo\Response\Response;
@@ -835,316 +390,106 @@ class UserController extends Controller
 {
     public function store(Request $request): Response
     {
-        $validate = new Validation($request->post() , [
-            'name.firstName' => 'required|string|max:255|min:10',
-            'name.lastName' => 'required|string|max:255|min:10',
-            'age' => 'required|date:Y-m-d',
+        $validate = new Validation($request-&gt;post() , [
+            'name.firstName' =&gt; 'required|string|max:255|min:10',
+            'name.lastName' =&gt; 'required|string|max:255|min:10',
+            'age' =&gt; 'required|date:Y-m-d',
         ]);
 
-        if ($validate->hasError()){
-            return response()->json([
-                'errors' => $validate->getErrors()
+        if ($validate-&gt;hasError()){
+            return response()-&gt;json([
+                'errors' =&gt; $validate-&gt;getErrors()
             ] , 422);
         }
 
-        return response()->json([
-            'message' => 'OK'
+        return response()-&gt;json([
+            'message' =&gt; 'OK'
         ]);
     }
-}
-                                        </code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> hasError
-                                    </h3>
-                                    <p>
-                                        The following method determines whether the information sent has errors or not
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">if ($validate->hasError()){
-    //
-}</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> hasMessage
-                                    </h3>
-                                    <p>
-                                        The following method determines whether the information sent has errors or not
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">if ($validate->hasMessage()){
-    //
-}</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> getMessages
-                                    </h3>
-                                    <p>
-                                        The following method returns an array of all error messages if there is an error, otherwise it returns an empty array.
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">if ($validate->hasError()){
-    return response()->json([
-        'errorMessages' => $validate->getErrors()
+}</code></pre>
+<h3>hasError</h3>
+<p>The following method determines whether the information sent has errors or not</p>
+<pre><code class="language-php">if ($validate-&gt;hasError()){
+//
+}</code></pre>
+<h3>hasMessage</h3>
+<p>The following method determines whether the information sent has errors or not</p>
+<pre><code class="language-php">if ($validate-&gt;hasMessage()){
+//
+}</code></pre>
+<h3>getMessages</h3>
+<p>The following method returns an array of all error messages if there is an error, otherwise it returns an empty array.</p>
+<pre><code class="language-php">if ($validate-&gt;hasError()){
+    return response()-&gt;json([
+        'errorMessages' =&gt; $validate-&gt;getErrors()
     ] , 422);
-}</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> firstMessage
-                                    </h3>
-                                    <p>
-                                        If there is an error, the following method returns only the first error message
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">if ($validate->hasError()){
-    return response()->json([
-        'firstErrorMessage' => $validate->firstMessage()
+}</code></pre>
+<h3>firstMessage</h3>
+<p>If there is an error, the following method returns only the first error message</p>
+<pre><code class="language-php">if ($validate-&gt;hasError()){
+    return response()-&gt;json([
+        'firstErrorMessage' =&gt; $validate-&gt;firstMessage()
     ] , 422);
-}</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> getErrors
-                                    </h3>
-                                    <p>
-                                        If there is an error, the following method returns the complete information of that error (including the desired field of the error message only for each field and...)
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">if ($validate->hasError()){
-    return response()->json([
-        'errors' => $validate->getErrors()
+}</code></pre>
+<h3>getErrors</h3>
+<p>If there is an error, the following method returns the complete information of that error (including the desired field of the error message only for each field and...)</p>
+<pre><code class="language-php">if ($validate-&gt;hasError()){
+    return response()-&gt;json([
+        'errors' =&gt; $validate-&gt;getErrors()
     ] , 422);
-}</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> firstErrors
-                                    </h3>
-                                    <p>
-                                        If there is an error, the following method returns the complete information of the first error (including the desired field of the error message only for each field and...)
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">if ($validate->hasError()){
-    return response()->json([
-        'firstError' => $validate->firstError()
+}</code></pre>
+<h3>firstErrors</h3>
+<p>If there is an error, the following method returns the complete information of the first error (including the desired field of the error message only for each field and...)</p>
+<pre><code class="language-php">if ($validate-&gt;hasError()){
+    return response()-&gt;json([
+        'firstError' =&gt; $validate-&gt;firstError()
     ] , 422);
-}</code>
-                                    </pre>
-                                </div>
+}</code></pre>
+<h3>Available Validation Rules</h3>
+<h6>after:field</h6>
+<p>The field to be verified must have a value greater than the specified field</p>
+<h6>before:field</h6>
+<p>The field to be verified must have a value less than the specified field</p>
+<h6>required</h6>
+<p>The desired field must have a value and cannot be without a value</p>
+<h6>string</h6>
+<p>The desired field must be of string type</p>
+<h6>integer</h6>
+<p>The desired field must be of integer type</p>
+<h6>boolean</h6>
+<p>The desired field must be of boolean type</p>
+<h6>array</h6>
+<p>The desired field must be of array type</p>
+<h6>email</h6>
+<p>The field under validation must be formatted as an email address.</p>
+<h6>regex:pattern</h6>
+<p>The field under validation must match the given regular expression.</p>
+<h6>notRegex:pattern</h6>
+<p>The field under validation must not match the given regular expression.</p>
+<h6>max:value</h6>
+<p>The field under validation must be less than or equal to a maximum value. Strings, numerics, arrays, and files are evaluated in the same fashion as the size rule.</p>
+<h6>min:value</h6>
+<p>The field under validation must have a minimum value. Strings, numerics, arrays, and files are evaluated in the same fashion as the size rule.</p>
+<h6>size:value</h6>
+<p>The field under validation must have a size matching the given value. For string data, value corresponds to the number of characters. For numeric data, value corresponds to a given integer value (the attribute must also have the numeric or integer rule). For an array, size corresponds to the count of the array.</p>
+<h6>date:format</h6>
+<p>The field under validation must be a valid, date according to the Carbon.</p>
+<h6>in:foo,bar,...</h6>
+<p>The field under validation must be included in the given list of values.</p>
+<h6>exists:table,column</h6>
+<p>The field under validation must exist in a given database table.</p>
+<h6>unique:table,column</h6>
+<p>The field under validation must not exist within the given database table.</p>
+</div></section><section class="doc-section"><h2 class="section-title" id="log">Log</h2><div class="section-block">
+<p>To help you learn more about what's happening within your application, Fomo provides robust logging services that allow you to log messages to files, the system error log to notify your entire team.</p>
+<h3>channel</h3>
+<p>Set log file name (default: Fomo)</p>
+<pre><code class="language-php">use Fomo\Log\Log;
 
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Available Validation Rules
-                                    </h3>
-                                    <br>
-                                    <br>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> after:field
-                                        </h6>
-                                        <p>
-                                            The field to be verified must have a value greater than the specified field
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> before:field
-                                        </h6>
-                                        <p>
-                                            The field to be verified must have a value less than the specified field
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> required
-                                        </h6>
-                                        <p>
-                                            The desired field must have a value and cannot be without a value
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> string
-                                        </h6>
-                                        <p>
-                                            The desired field must be of <span class="red-text">string</span> type
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> integer
-                                        </h6>
-                                        <p>
-                                            The desired field must be of <span class="red-text">integer</span> type
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> boolean
-                                        </h6>
-                                        <p>
-                                            The desired field must be of <span class="red-text">boolean</span> type
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> array
-                                        </h6>
-                                        <p>
-                                            The desired field must be of <span class="red-text">array</span> type
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> email
-                                        </h6>
-                                        <p>
-                                            The field under validation must be formatted as an email address.
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> regex:pattern
-                                        </h6>
-                                        <p>
-                                            The field under validation must match the given regular expression.
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> notRegex:pattern
-                                        </h6>
-                                        <p>
-                                            The field under validation must not match the given regular expression.
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> max:value
-                                        </h6>
-                                        <p>
-                                            The field under validation must be less than or equal to a maximum value. Strings, numerics, arrays, and files are evaluated in the same fashion as the size rule.
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> min:value
-                                        </h6>
-                                        <p>
-                                            The field under validation must have a minimum value. Strings, numerics, arrays, and files are evaluated in the same fashion as the size rule.
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> size:value
-                                        </h6>
-                                        <p>
-                                            The field under validation must have a size matching the given value. For string data, value corresponds to the number of characters. For numeric data, value corresponds to a given integer value (the attribute must also have the numeric or integer rule). For an array, size corresponds to the count of the array.
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> date:format
-                                        </h6>
-                                        <p>
-                                            The field under validation must be a valid, date according to the Carbon.
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> in:foo,bar,...
-                                        </h6>
-                                        <p>
-                                            The field under validation must be included in the given list of values.
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> exists:table,column
-                                        </h6>
-                                        <p>
-                                            The field under validation must exist in a given database table.
-                                        </p>
-                                    </div>
-
-                                    <div>
-                                        <h6>
-                                            <span class="red2-text">#</span> unique:table,column
-                                        </h6>
-                                        <p>
-                                            The field under validation must not exist within the given database table.
-                                        </p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </section>
-
-                        <section id="log" class="doc-section">
-                            <h2 class="section-title">Log</h2>
-                            <div class="section-block">
-                                <div>
-                                    <p>
-                                        To help you learn more about what's happening within your application, Fomo provides robust logging services that allow you to log messages to files, the system error log to notify your entire team.
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> channel
-                                    </h3>
-                                    <p>
-                                        Set log file name (default: fomo)
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">use Fomo\Log\Log;
-
-Log::channel('security')->emergency('The system is down!');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Writing Log Messages
-                                    </h3>
-                                    <p>
-                                        You may write information to the logs using the Log facade. As previously mentioned, the logger provides the eight logging levels defined in the RFC 5424 specification: emergency, alert, critical, error, warning, notice, info and debug:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">use Fomo\Log\Log;
+Log::channel('security')-&gt;emergency('The system is down!');</code></pre>
+<h3>Writing Log Messages</h3>
+<p>You may write information to the logs using the Log facade. As previously mentioned, the logger provides the eight logging levels defined in the RFC 5424 specification: emergency, alert, critical, error, warning, notice, info and debug:</p>
+<pre><code class="language-php">use Fomo\Log\Log;
 
 Log::info($message, $content);
 Log::alert($message, $content);
@@ -1154,641 +499,222 @@ Log::emergency($message, $content);
 Log::error($message, $content);
 Log::log($message, $content);
 Log::notice($message, $content);
-Log::warning($message, $content);</code>
-                                    </pre>
-                                </div>
+Log::warning($message, $content);</code></pre>
+</div></section><section class="doc-section"><h1 class="section-title" id="a-little-deeper">A Little Deeper</h1><div class="section-block">
+</div></section><section class="doc-section"><h2 class="section-title" id="cache">Cache</h2><div class="section-block">
+<p>Some of the data retrieval or processing tasks performed by your application could be CPU intensive or take several seconds to complete. When this is the case, it is common to cache the retrieved data for a time so it can be retrieved quickly on subsequent requests for the same data. The cached data is usually stored in a very fast data store such as Redis.</p>
+<h3>Cache Usage</h3>
+<h6>get instance of Cache</h6>
+<p>You can use the following method to get a cache sample</p>
+<pre><code class="language-php">use Fomo\Cache\Cache;
 
-                            </div>
-                        </section>
+$cache = new Cache();</code></pre>
+<h6>Retrieving Items From The Cache</h6>
+<p>The Cache class's get method is used to retrieve items from the cache. If the item does not exist in the cache, null will be returned. If you wish, you may pass a second argument to the get method specifying the default value you wish to be returned if the item doesn't exist:</p>
+<pre><code class="language-php">$value = $cache-&gt;get('key');</code></pre>
+<p>You may even pass a closure as the default value. The result of the closure will be returned if the specified item does not exist in the cache. Passing a closure allows you to defer the retrieval of default values from a database or other external service:</p>
+<pre><code class="language-php">$value = $cache-&gt;get('key' , function () {
+    return DB::table(/* ... */)-&gt;get();
+});</code></pre>
+<h6>Checking For Item Existence</h6>
+<p>The has method may be used to determine if an item exists in the cache:</p>
+<pre><code class="language-php">if ($cache-&gt;has('key')) {
+//
+}</code></pre>
+<h6>Retrieve &amp; Store</h6>
+<p>Sometimes you may wish to retrieve an item from the cache, but also store a default value if the requested item doesn't exist. For example, you may wish to retrieve all users from the cache or, if they don't exist, retrieve them from the database and add them to the cache. You may do this using the remember method:</p>
+<pre><code class="language-php">$value = $cache-&gt;remember('users', $seconds, function () {
+    return DB::table('users')-&gt;get();
+});</code></pre>
+<p>If the item does not exist in the cache, the closure passed to the remember method will be executed and its result will be placed in the cache.</p>
+<p>You may use the rememberForever method to retrieve an item from the cache or store it forever if it does not exist:</p>
+<pre><code class="language-php">$value = $cache-&gt;rememberForever('users', $seconds, function () {
+    return DB::table('users')-&gt;get();
+});</code></pre>
+<h6>Retrieve &amp; Delete</h6>
+<p>If you need to retrieve an item from the cache and then delete the item, you may use the pull method. Like the get method, null will be returned if the item does not exist in the cache:</p>
+<pre><code class="language-php">$value = $cache-&gt;pull('key');</code></pre>
+<h6>Storing Items In The Cache</h6>
+<p>You may use the put method on the Cache class to store items in the cache:</p>
+<pre><code class="language-php">$cache-&gt;put('key' , 'value' , $seconds = 10);</code></pre>
+<p>If the storage time is not passed to the put method, the item will be stored indefinitely:</p>
+<pre><code class="language-php">$cache-&gt;put('key' , 'value');</code></pre>
+</div></section><section class="doc-section"><h2 class="section-title" id="helpers">Helpers</h2><div class="section-block">
+<p>Fomo includes a variety of global helper PHP functions. Many of these functions are used by the framework itself; however, you are free to use them in your own applications if you find them convenient.</p>
+<h6>appPath()</h6>
+<p>The appPath function returns the fully qualified path to your application's app directory. You may also use the appPath function to generate a fully qualified path to a file relative to the application directory:</p>
+<pre><code class="language-php">$path = appPath();
 
-                        <section id="cache" class="doc-section">
-                            <h2 class="section-title">Cache</h2>
-                            <div class="section-block">
-                                <div>
-                                    <p>
-                                        Some of the data retrieval or processing tasks performed by your application could be CPU intensive or take several seconds to complete. When this is the case, it is common to cache the retrieved data for a time so it can be retrieved quickly on subsequent requests for the same data. The cached data is usually stored in a very fast data store such as Redis.
-                                    </p>
-                                </div>
+$path = appPath('Controllers/Controller.php');</code></pre>
+<h6>basePath()</h6>
+<p>The basePath function returns the fully qualified path to your application's root directory. You may also use the basePath function to generate a fully qualified path to a given file relative to the project root directory:</p>
+<pre><code class="language-php">$path = basePath();
 
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Cache Usage
-                                    </h3>
-                                </div>
-                                <br>
-                                <br>
+$path = basePath('vendor/bin');</code></pre>
+<h6>configPath()</h6>
+<p>The configPath function returns the fully qualified path to your application's config directory. You may also use the configPath function to generate a fully qualified path to a given file within the application's configuration directory:</p>
+<pre><code class="language-php">$path = configPath();
 
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> get instance of Cache
-                                    </h6>
-                                    <p>
-                                        You can use the following method to get a <span class="red-text">cache</span> sample
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">use Fomo\Cache\Cache;
+$path = configPath('app.php');</code></pre>
+<h6>databasePath()</h6>
+<p>The databasePath function returns the fully qualified path to your application's database directory. You may also use the databasePath function to generate a fully qualified path to a given file within the database directory:</p>
+<pre><code class="language-php">$path = databasePath();
 
-$cache = new Cache();</code>
-                                    </pre>
-                                </div>
+$path = databasePath('Factory.php');</code></pre>
+<h6>languagePath()</h6>
+<p>The languagePath function returns the fully qualified path to your application's language directory. You may also use the languagePath function to generate a fully qualified path to a given file within the directory:</p>
+<pre><code class="language-php">$path = languagePath();
 
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> Retrieving Items From The Cache
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">Cache</span> class's <span class="red-text">get</span> method is used to retrieve items from the cache. If the item does not exist in the cache, <span class="red-text">null</span> will be returned. If you wish, you may pass a second argument to the <span class="red-text">get</span> method specifying the default value you wish to be returned if the item doesn't exist:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$value = $cache->get('key');</code>
-                                    </pre>
-                                    <p>
-                                        You may even pass a closure as the default value. The result of the closure will be returned if the specified item does not exist in the cache. Passing a closure allows you to defer the retrieval of default values from a database or other external service:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$value = $cache->get('key' , function () {
-    return DB::table(/* ... */)->get();
-});</code>
-                                    </pre>
-                                </div>
+$path = languagePath('validation/en');</code></pre>
+<h6>storagePath()</h6>
+<p>The storagePath function returns the fully qualified path to your application's storage directory. You may also use the storagePath function to generate a fully qualified path to a given file within the directory:</p>
+<pre><code class="language-php">$path = storagePath();
 
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> Checking For Item Existence
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">has</span> method may be used to determine if an item exists in the cache:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">if ($cache->has('key')) {
-    //
-}</code>
-                                    </pre>
-                                </div>
+$path = storagePath('logs/Fomo.log');</code></pre>
+<h6>config()</h6>
+<p>The config function gets the value of a configuration variable. The configuration values may be accessed using &quot;dot&quot; syntax, which includes the name of the file and the option you wish to access. A default value may be specified and is returned if the configuration option does not exist:</p>
+<pre><code class="language-php">$value = config('app.timezone');
 
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> Retrieve & Store
-                                    </h6>
-                                    <p>
-                                        Sometimes you may wish to retrieve an item from the cache, but also store a default value if the requested item doesn't exist. For example, you may wish to retrieve all users from the cache or, if they don't exist, retrieve them from the database and add them to the cache. You may do this using the <span class="red-text">remember</span> method:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$value = $cache->remember('users', $seconds, function () {
-    return DB::table('users')->get();
-});</code>
-                                    </pre>
-                                    <p>
-                                        If the item does not exist in the cache, the closure passed to the <span class="red-text">remember</span> method will be executed and its result will be placed in the cache.
-                                    </p>
-                                    <br>
-                                    <p>
-                                        You may use the <span class="red-text">rememberForever</span> method to retrieve an item from the cache or store it forever if it does not exist:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$value = $cache->rememberForever('users', $seconds, function () {
-    return DB::table('users')->get();
-});</code>
-                                    </pre>
-                                </div>
+$value = config('app.timezone', $default);</code></pre>
+<h6>response()</h6>
+<p>The response function creates a response instance or obtains an instance of the response factory:</p>
+<pre><code class="language-php">return response('Hello World', 200, $headers);
 
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> Retrieve & Delete
-                                    </h6>
-                                    <p>
-                                        If you need to retrieve an item from the cache and then delete the item, you may use the <span class="red-text">pull</span> method. Like the <span class="red-text">get</span> method, <span class="red-text">null</span> will be returned if the item does not exist in the cache:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$value = $cache->pull('key');</code>
-                                    </pre>
-                                </div>
+return response()-&gt;json(['foo' =&gt; 'bar'], 200, $headers);</code></pre>
+<h6>auth()</h6>
+<p>The auth function returns an authenticator instance. You may use it as an alternative to the Auth class:</p>
+<pre><code class="language-php">$user = auth()-&gt;user();</code></pre>
+<h6>elasticsearch()</h6>
+<p>The elasticsearch function returns an elasticsearch instance. You may use it as an alternative to the Elasticsearch class:</p>
+<pre><code class="language-php">return elasticsearch()-&gt;msearch(/* set your query */);</code></pre>
+<h6>redis()</h6>
+<p>The redis function returns an redis instance. You may use it as an alternative to the Redis class:</p>
+<pre><code class="language-php">return redis()-&gt;get(/*set your key */);</code></pre>
+<h6>mail()</h6>
+<p>The mail function returns an mail instance. You may use it as an alternative to the Mail class:</p>
+<pre><code class="language-php">mail()-&gt;body(/*set your body */)-&gt;send();</code></pre>
+<h6>env()</h6>
+<p>The env function retrieves the value of an environment variable or returns a default value:</p>
+<pre><code class="language-php">$env = env('APP_ENV');
 
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> Storing Items In The Cache
-                                    </h6>
-                                    <p>
-                                        You may use the <span class="red-text">put</span> method on the <span class="red-text">Cache</span> class to store items in the cache:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$cache->put('key' , 'value' , $seconds = 10);</code>
-                                    </pre>
-                                    <p>
-                                        If the storage time is not passed to the <span class="red-text">put</span> method, the item will be stored indefinitely:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$cache->put('key' , 'value');</code>
-                                    </pre>
-                                </div>
-
-                            </div>
-                        </section>
-
-                        <section id="helpers" class="doc-section">
-                            <h2 class="section-title">Helpers</h2>
-                            <div class="section-block">
-                                <div>
-                                    <p>
-                                        Fomo includes a variety of global <span class="red-text">helper</span> PHP functions. Many of these functions are used by the framework itself; however, you are free to use them in your own applications if you find them convenient.
-                                    </p>
-                                </div>
-
-                                <br>
-                                <br>
-
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> appPath()
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">appPath</span> function returns the fully qualified path to your application's <span class="red-text">app</span> directory. You may also use the <span class="red-text">appPath</span> function to generate a fully qualified path to a file relative to the application directory:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$path = appPath();
-
-$path = appPath('Controllers/Controller.php');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> basePath()
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">basePath</span> function returns the fully qualified path to your application's root directory. You may also use the <span class="red-text">basePath</span> function to generate a fully qualified path to a given file relative to the project root directory:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$path = basePath();
-
-$path = basePath('vendor/bin');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> configPath()
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">configPath</span> function returns the fully qualified path to your application's config directory. You may also use the <span class="red-text">configPath</span> function to generate a fully qualified path to a given file within the application's configuration directory:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$path = configPath();
-
-$path = configPath('app.php');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> databasePath()
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">databasePath</span> function returns the fully qualified path to your application's <span class="red-text">database</span> directory. You may also use the <span class="red-text">databasePath</span> function to generate a fully qualified path to a given file within the database directory:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$path = databasePath();
-
-$path = databasePath('Factory.php');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> languagePath()
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">languagePath</span> function returns the fully qualified path to your application's language directory. You may also use the <span class="red-text">languagePath</span> function to generate a fully qualified path to a given file within the directory:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$path = languagePath();
-
-$path = languagePath('validation/en');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> storagePath()
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">storagePath</span> function returns the fully qualified path to your application's storage directory. You may also use the <span class="red-text">storagePath</span> function to generate a fully qualified path to a given file within the directory:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$path = storagePath();
-
-$path = storagePath('logs/fomo.log');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> config()
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">config</span> function gets the value of a configuration variable. The configuration values may be accessed using "dot" syntax, which includes the name of the file and the option you wish to access. A default value may be specified and is returned if the configuration option does not exist:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$value = config('app.timezone');
-
-$value = config('app.timezone', $default);</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> response()
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">response</span> function creates a response instance or obtains an instance of the response factory:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">return response('Hello World', 200, $headers);
-
-return response()->json(['foo' => 'bar'], 200, $headers);</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> auth()
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">auth</span> function returns an authenticator instance. You may use it as an alternative to the Auth class:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$user = auth()->user();</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> elasticsearch()
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">elasticsearch</span> function returns an elasticsearch instance. You may use it as an alternative to the Elasticsearch class:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">return elasticsearch()->msearch(/* set your query */);</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> redis()
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">redis</span> function returns an redis instance. You may use it as an alternative to the Redis class:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">return redis()->get(/*set your key */);</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> mail()
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">mail</span> function returns an mail instance. You may use it as an alternative to the Mail class:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">mail()->body(/*set your body */)->send();</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h6>
-                                        <span class="red2-text">#</span> env()
-                                    </h6>
-                                    <p>
-                                        The <span class="red-text">env</span> function retrieves the value of an environment variable or returns a default value:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$env = env('APP_ENV');
-
-$env = env('APP_ENV', 'production');</code>
-                                    </pre>
-                                </div>
-
-                            </div>
-                        </section>
-
-                        <section id="http-client" class="doc-section">
-                            <h2 class="section-title">HTTP Client</h2>
-                            <div class="section-block">
-                                <div>
-                                    <p>
-                                        Fomo provides an expressive, minimal API around the <span class="red-text">Guzzle HTTP client</span>, allowing you to quickly make outgoing HTTP requests to communicate with other web applications. Fomo's wrapper around Guzzle is focused on its most common use cases and a wonderful developer experience.
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Making Requests
-                                    </h3>
-                                    <p>
-                                        To make requests, you may use the <span class="red-text">head</span>, <span class="red-text">get</span>, <span class="red-text">post</span>, <span class="red-text">head</span>put, <span class="red-text">patch</span>, and <span class="red-text">delete</span> methods provided by the Http facade. First, let's examine how to make a basic GET request to another URL:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">use Fomo\Http\Http;
+$env = env('APP_ENV', 'production');</code></pre>
+</div></section><section class="doc-section"><h1 class="section-title" id="server">Server</h1><div class="section-block">
+</div></section><section class="doc-section"><h2 class="section-title" id="http-client">HTTP Client</h2><div class="section-block">
+<p>Fomo provides an expressive, minimal API around the Guzzle HTTP client, allowing you to quickly make outgoing HTTP requests to communicate with other web applications. Fomo's wrapper around Guzzle is focused on its most common use cases and a wonderful developer experience.</p>
+<h3>Making Requests</h3>
+<p>To make requests, you may use the head, get, post, headput, patch, and delete methods provided by the Http facade. First, let's examine how to make a basic GET request to another URL:</p>
+<pre><code class="language-php">use Fomo\Http\Http;
 
 $http = new Http();
-$response = $http->get('http://example.com');</code>
-                                    </pre>
-                                    <p>
-                                        The <span class="red-text">get</span> method returns an instance of Fomo\Http\Response, which provides a variety of methods that may be used to inspect the response:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$response->body() : string;
-$response->json($key = null) : array|mixed;
-$response->object() : object;
-$response->status() : int;
-$response->ok() : bool;
-$response->successful() : bool;
-$response->redirect(): bool;
-$response->failed() : bool;
-$response->serverError() : bool;
-$response->clientError() : bool;
-$response->header($header) : string;
-$response->headers() : array;</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Request Data
-                                    </h3>
-                                    <p>
-                                        Of course, it is common when making <span class="red-text">POST</span>, <span class="red-text">PUT</span>, and <span class="red-text">PATCH</span> requests to send additional data with your request, so these methods accept an array of data as their second argument. By default, data will be sent using the <span class="red-text">application/json</span> content type:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$response = $http->post('http://example.com', [
-    'foo' => 'bar'
-]);</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> GET Request Query Parameters
-                                    </h3>
-                                    <p>
-                                        When making <span class="red-text">GET</span> requests, you may either append a query string to the URL directly or pass an array of key / value pairs as the second argument to the <span class="red-text">get</span> method:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$response = $http->get('http://example.com', [
-    'foo' => 'bar'
-]);</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Sending Form URL Encoded Requests
-                                    </h3>
-                                    <p>
-                                        If you would like to send data using the <span class="red-text">application/x-www-form-urlencoded</span> content type, you should call the <span class="red-text">asForm</span> method before making your request:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$response = $http->asForm()->post('http://example.com', [
-    'foo' => 'bar'
-]);</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Sending A Raw Request Body
-                                    </h3>
-                                    <p>
-                                        You may use the <span class="red-text">withBody</span> method if you would like to provide a raw request body when making a request. The content type may be provided via the method's second argument:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$response = $http->withBody(
+$response = $http-&gt;get('http://example.com');</code></pre>
+<p>The get method returns an instance of Fomo\Http\Response, which provides a variety of methods that may be used to inspect the response:</p>
+<pre><code class="language-php">$response-&gt;body() : string;
+$response-&gt;json($key = null) : array|mixed;
+$response-&gt;object() : object;
+$response-&gt;status() : int;
+$response-&gt;ok() : bool;
+$response-&gt;successful() : bool;
+$response-&gt;redirect(): bool;
+$response-&gt;failed() : bool;
+$response-&gt;serverError() : bool;
+$response-&gt;clientError() : bool;
+$response-&gt;header($header) : string;
+$response-&gt;headers() : array;</code></pre>
+<h3>Request Data</h3>
+<p>Of course, it is common when making POST, PUT, and PATCH requests to send additional data with your request, so these methods accept an array of data as their second argument. By default, data will be sent using the application/json content type:</p>
+<pre><code class="language-php">$response = $http-&gt;post('http://example.com', [
+    'foo' =&gt; 'bar'
+]);</code></pre>
+<h3>GET Request Query Parameters</h3>
+<p>When making GET requests, you may either append a query string to the URL directly or pass an array of key / value pairs as the second argument to the get method:</p>
+<pre><code class="language-php">$response = $http-&gt;get('http://example.com', [
+    'foo' =&gt; 'bar'
+]);</code></pre>
+<h3>Sending Form URL Encoded Requests</h3>
+<p>If you would like to send data using the application/x-www-form-urlencoded content type, you should call the asForm method before making your request:</p>
+<pre><code class="language-php">$response = $http-&gt;asForm()-&gt;post('http://example.com', [
+    'foo' =&gt; 'bar'
+]);</code></pre>
+<h3>Sending A Raw Request Body</h3>
+<p>You may use the withBody method if you would like to provide a raw request body when making a request. The content type may be provided via the method's second argument:</p>
+<pre><code class="language-php">$response = $http-&gt;withBody(
     base64_encode($photo), 'image/jpeg'
-)->post('http://example.com');</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Multi-Part Requests
-                                    </h3>
-                                    <p>
-                                        If you would like to send files as multi-part requests, you should call the <span class="red-text">attach</span> method before making your request. This method accepts the name of the file and its contents. If needed, you may provide a third argument which will be considered the file's filename:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$response = $http->attach(
+)-&gt;post('http://example.com');</code></pre>
+<h3>Multi-Part Requests</h3>
+<p>If you would like to send files as multi-part requests, you should call the attach method before making your request. This method accepts the name of the file and its contents. If needed, you may provide a third argument which will be considered the file's filename:</p>
+<pre><code class="language-php">$response = $http-&gt;attach(
     'attachment', file_get_contents('photo.jpg'), 'photo.jpg'
-)->post('http://example.com');</code>
-                                    </pre>
-                                    <p>
-                                        Instead of passing the raw contents of a file, you may pass a stream resource:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$photo = fopen('photo.jpg', 'r');
-$response = $http->attach(
+)-&gt;post('http://example.com');</code></pre>
+<p>Instead of passing the raw contents of a file, you may pass a stream resource:</p>
+<pre><code class="language-php">$photo = fopen('photo.jpg', 'r');
+$response = $http-&gt;attach(
     'attachment', $photo, 'photo.jpg'
-)->post('http://example.com');</code>
-                                    </pre>
-                                </div>
+)-&gt;post('http://example.com');</code></pre>
+<h3>Headers</h3>
+<p>Headers may be added to requests using the withHeaders method. This withHeaders method accepts an array of key / value pairs:</p>
+<pre><code class="language-php">$response = $http-&gt;withHeaders([
+    'X-First' =&gt; 'foo',
+    'X-Second' =&gt; 'bar'
+])-&gt;post('http://example.com', [
+    'foo' =&gt; 'bar',
+]);</code></pre>
+<h3>Error Handling</h3>
+<p>Unlike Guzzle's default behavior, Fomo's HTTP client wrapper does not throw exceptions on client or server errors (400 and 500 level responses from servers). You may determine if one of these errors was returned using the isSuccessfulsuccessful, isClientError, or isServerError methods:</p>
+<pre><code class="language-php">// Determine if the status code is &gt;= 200 and &lt; 300...
+$response-&gt;isSuccessful();
 
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Headers
-                                    </h3>
-                                    <p>
-                                        Headers may be added to requests using the <span class="red-text">withHeaders</span> method. This <span class="red-text">withHeaders</span> method accepts an array of key / value pairs:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">$response = $http->withHeaders([
-    'X-First' => 'foo',
-    'X-Second' => 'bar'
-])->post('http://example.com', [
-    'foo' => 'bar',
-]);</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-
-                                    <h3>
-                                        <span class="red2-text">#</span> Error Handling
-                                    </h3>
-                                    <p>
-                                        Unlike Guzzle's default behavior, Fomo's HTTP client wrapper does not throw exceptions on client or server errors (<span class="red-text">400</span> and <span class="red-text">500</span> level responses from servers). You may determine if one of these errors was returned using the <span class="red-text">isSuccessful</span>successful, <span class="red-text">isClientError</span>, or <span class="red-text">isServerError</span> methods:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">// Determine if the status code is >= 200 and < 300...
-$response->isSuccessful();
-
-// Determine if the status code is >= 400...
-$response->isFailed();
+// Determine if the status code is &gt;= 400...
+$response-&gt;isFailed();
 
 // Determine if the response has a 400 level status code...
-$response->isClientError();
+$response-&gt;isClientError();
 
 // Determine if the response has a 500 level status code...
-$response->isServerError();
+$response-&gt;isServerError();
 
 // Immediately execute the given callback if there was a client or server error...
-$response->onError(callable $callback);
-
-</code>
-                                    </pre>
-                                </div>
-
-                            </div>
-                        </section>
-
-                        <section id="http-server" class="doc-section">
-                            <h2 class="section-title">HTTP Server</h2>
-                            <div class="section-block">
-                                <div>
-                                    <p>
-                                        An <span class="red-text">HTTP server</span> is a computer (software) program (or even a software component included in an other program) that plays the role of a server in a client–server model by implementing the server part of the HTTP and/or HTTPS network protocol(s).
-
-                                        An HTTP server waits for the incoming client requests (sent by user agents like browsers, web crawlers, etc.) and for each request it answers by replying with requested information, including the sending of the requested web resource, or with an HTTP error message.
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> start command
-                                    </h3>
-                                    <p>
-                                        You can use the following command to start the server
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer server:start</code>
-                                    </pre>
-                                    <p>
-                                        With the options <span class="red-text">--watch</span> or <span class="red-text">-w</span>, you can give this command to the server, so that if there are changes in the files, the server will automatically reload in real time.
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer server:start -w
+$response-&gt;onError(callable $callback);
+</code></pre>
+</div></section><section class="doc-section"><h2 class="section-title" id="http-server">HTTP Server</h2><div class="section-block">
+<p>An HTTP server is a computer (software) program (or even a software component included in an other program) that plays the role of a server in a client–server model by implementing the server part of the HTTP and/or HTTPS network protocol(s). An HTTP server waits for the incoming client requests (sent by user agents like browsers, web crawlers, etc.) and for each request it answers by replying with requested information, including the sending of the requested web resource, or with an HTTP error message.</p>
+<h3>start command</h3>
+<p>You can use the following command to start the server</p>
+<pre><code class="language-bash">php engineer server:start</code></pre>
+<p>With the options --watch or -w, you can give this command to the server, so that if there are changes in the files, the server will automatically reload in real time.</p>
+<pre><code class="language-bash">php engineer server:start -w
+# or
+php engineer server:start --watch</code></pre>
+<p>With the options --daemonize or -d, you can give this command to the server, so that the server runs in the background</p>
+<pre><code class="language-bash">php engineer server:start -d
 //or
-php engineer server:start --watch</code>
-                                    </pre>
-                                    <p>
-                                        With the options <span class="red-text">--daemonize</span> or <span class="red-text">-d</span>, you can give this command to the server, so that the server runs in the background
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer server:start -d
-//or
-php engineer server:start --daemonize</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> reload command
-                                    </h3>
-                                    <p>
-                                        You can reload the server with the following command
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer server:reload</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> status command
-                                    </h3>
-                                    <p>
-                                        You can check the status of all processes with the following command
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer server:status</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> stop command
-                                    </h3>
-                                    <p>
-                                        You can stop the server with the following command
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer server:stop</code>
-                                    </pre>
-                                </div>
-
-                            </div>
-                        </section>
-
-                        <section id="queue-server" class="doc-section">
-                            <h2 class="section-title">Queue Server</h2>
-                            <div class="section-block">
-                                <div>
-                                    <p>
-                                        While building your web application, you may have some tasks, such as parsing and storing an uploaded CSV file, that take too long to perform during a typical web request. Thankfully, Fomo allows you to easily create queued jobs that may be processed in the background. By moving time intensive tasks to a queue, your application can respond to web requests with blazing speed and provide a better user experience to your customers.
-                                    </p>
-                                    <p>
-                                        Queues in fomo are supported by <span class="red-text">redis</span>
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> start command
-                                    </h3>
-                                    <p>
-                                        You can use the following command to start the server
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer queue:start</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> status command
-                                    </h3>
-                                    <p>
-                                        You can check the status of all processes with the following command
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer queue:status</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> stop command
-                                    </h3>
-                                    <p>
-                                        You can stop the server with the following command
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer queue:stop</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Generating Job Classes
-                                    </h3>
-                                    <p>
-                                        By default, all of the queueable jobs for your application are stored in the <span class="red-text">app/Jobs</span> directory. If the <span class="red-text">app/Jobs</span> directory doesn't exist, it will be created when you run the <span class="red-text">build:job</span> engineer command:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer build:job JobName</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Class Structure
-                                    </h3>
-                                    <p>
-                                        Job classes are very simple, normally containing only a handle method that is invoked when the job is processed by the queue. To get started, let's take a look at an example job class. In this example, we'll pretend we manage a podcast publishing service and need to process the uploaded podcast files before they are published:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">namespace App\Jobs;
+php engineer server:start --daemonize</code></pre>
+<h3>reload command</h3>
+<p>You can reload the server with the following command</p>
+<pre><code class="language-bash">php engineer server:reload</code></pre>
+<h3>status command</h3>
+<p>You can check the status of all processes with the following command</p>
+<pre><code class="language-bash">php engineer server:status</code></pre>
+<h3>stop command</h3>
+<p>You can stop the server with the following command</p>
+<pre><code class="language-bash">php engineer server:stop</code></pre>
+</div></section><section class="doc-section"><h2 class="section-title" id="queue-server">Queue Server</h2><div class="section-block">
+<p>While building your web application, you may have some tasks, such as parsing and storing an uploaded CSV file, that take too long to perform during a typical web request. Thankfully, Fomo allows you to easily create queued jobs that may be processed in the background. By moving time intensive tasks to a queue, your application can respond to web requests with blazing speed and provide a better user experience to your customers.</p>
+<p>Queues in Fomo are supported by redis</p>
+<h3>start command</h3>
+<p>You can use the following command to start the server</p>
+<pre><code class="language-bash">php engineer queue:start</code></pre>
+<h3>status command</h3>
+<p>You can check the status of all processes with the following command</p>
+<pre><code class="language-bash">php engineer queue:status</code></pre>
+<h3>stop command</h3>
+<p>You can stop the server with the following command</p>
+<pre><code class="language-bash">php engineer queue:stop</code></pre>
+<h3>Generating Job Classes</h3>
+<p>By default, all of the queueable jobs for your application are stored in the app/Jobs directory. If the app/Jobs directory doesn't exist, it will be created when you run the build:job engineer command:</p>
+<pre><code class="language-bash">php engineer build:job JobName</code></pre>
+<h3>Class Structure</h3>
+<p>Job classes are very simple, normally containing only a handle method that is invoked when the job is processed by the queue. To get started, let's take a look at an example job class. In this example, we'll pretend we manage a podcast publishing service and need to process the uploaded podcast files before they are published:</p>
+<pre><code class="language-php">namespace App\Jobs;
 
 use Fomo\Job\DispatchTrait;
 
@@ -1800,29 +726,18 @@ class ProcessPodcast
 
     public function __construct(Podcast $podcast)
     {
-        $this->podcast = $podcast;
+        $this-&gt;podcast = $podcast;
     }
 
     public function handle()
     {
         // Process podcast...
     }
-}</code>
-                                    </pre>
-                                    <p>
-                                        The <span class="red-text">handle</span> method is invoked when the job is processed by the queue.
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Dispatching Jobs
-                                    </h3>
-                                    <p>
-                                        Once you have written your <span class="red-text">job</span> class, you may <span class="red-text">dispatch</span> it using the <span class="red-text">dispatch</span> method on the job itself. The arguments passed to the <span class="red-text">dispatch</span> method will be given to the job's <span class="red-text">constructor</span>:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">namespace App\Http\Controllers;
+}</code></pre>
+<p>The handle method is invoked when the job is processed by the queue.</p>
+<h3>Dispatching Jobs</h3>
+<p>Once you have written your job class, you may dispatch it using the dispatch method on the job itself. The arguments passed to the dispatch method will be given to the job's constructor:</p>
+<pre><code class="language-php">namespace App\Http\Controllers;
 
 use App\Jobs\ProcessPodcast;
 
@@ -1836,82 +751,25 @@ class PodcastController extends Controller
 
         ProcessPodcast::dispatch($podcast);
     }
-}</code>
-                                    </pre>
-                                </div>
-
-                            </div>
-                        </section>
-
-                        <section id="scheduling-server" class="doc-section">
-                            <h2 class="section-title">Scheduling Server</h2>
-                            <div class="section-block">
-                                <div>
-                                    <p>
-                                        In the past, you may have written a cron configuration entry for every task you needed to schedule on your server. However, this can quickly become a pain because your job application is no longer in source control and you need to SSH into your server to view existing cron entries or add additional entries.
-                                    </p>
-                                    <p>
-                                        Fomo Command Scheduler offers a new approach to managing scheduled tasks on your server. The scheduler allows you to smoothly and clearly define the schedule of your commands in the Fomo app itself. When using scheduler, you don't need any cron entry on your server and all tasks are done through Fomo. The scheduling of your tasks is defined in the <span class="red-text">tasks</span> method of the <span class="red-text">app/Scheduling/Kernel.php</span> file. To help you get started, a simple example is defined inside the method.
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> start command
-                                    </h3>
-                                    <p>
-                                        You can use the following command to start the server
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer scheduling:start</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> status command
-                                    </h3>
-                                    <p>
-                                        You can check the status of all processes with the following command
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer scheduling:status</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> stop command
-                                    </h3>
-                                    <p>
-                                        You can stop the server with the following command
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer scheduling:stop</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Generating Task Classes
-                                    </h3>
-                                    <p>
-                                        By default, all of the scheduling jobs for your application are stored in the <span class="red-text">app/Scheduling/Tasks</span> directory. If the <span class="red-text">app/Scheduling/Tasks</span> directory doesn't exist, it will be created when you run the build:task engineer command:
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">php engineer build:task TaskName</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Class Structure
-                                    </h3>
-                                    <p>
-                                        Task classes are very simple, usually containing only a <span class="red-text">handle</span> method that is called by the scheduler when the task is processed.
-                                    </p>
-                                    <pre>
-                                        <code class="language-php">&lt;?php
+}</code></pre>
+</div></section><section class="doc-section"><h2 class="section-title" id="scheduling-server">Scheduling Server</h2><div class="section-block">
+<p>In the past, you may have written a cron configuration entry for every task you needed to schedule on your server. However, this can quickly become a pain because your job application is no longer in source control and you need to SSH into your server to view existing cron entries or add additional entries.</p>
+<p>Fomo Command Scheduler offers a new approach to managing scheduled tasks on your server. The scheduler allows you to smoothly and clearly define the schedule of your commands in the Fomo app itself. When using scheduler, you don't need any cron entry on your server and all tasks are done through Fomo. The scheduling of your tasks is defined in the tasks method of the app/Scheduling/Kernel.php file. To help you get started, a simple example is defined inside the method.</p>
+<h3>start command</h3>
+<p>You can use the following command to start the server</p>
+<pre><code class="language-bash">php engineer scheduling:start</code></pre>
+<h3>status command</h3>
+<p>You can check the status of all processes with the following command</p>
+<pre><code class="language-bash">php engineer scheduling:status</code></pre>
+<h3>stop command</h3>
+<p>You can stop the server with the following command</p>
+<pre><code class="language-bash">php engineer scheduling:stop</code></pre>
+<h3>Generating Task Classes</h3>
+<p>By default, all of the scheduling jobs for your application are stored in the app/Scheduling/Tasks directory. If the app/Scheduling/Tasks directory doesn't exist, it will be created when you run the build:task engineer command:</p>
+<pre><code class="language-bash">php engineer build:task TaskName</code></pre>
+<h3>Class Structure</h3>
+<p>Task classes are very simple, usually containing only a handle method that is called by the scheduler when the task is processed.</p>
+<pre><code class="language-php">&lt;?php
 
 namespace App\Scheduling\Tasks;
 
@@ -1923,23 +781,11 @@ class ClearTableTask
     {
         // Process
     }
-}</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Defining Schedules
-                                    </h3>
-                                    <p>
-                                        You may define all of your scheduled tasks in the schedule method of your application's <span class="red-text">App\Scheduling\Kernel</span> class. To get started, let's take a look at an example. In this example, we will schedule a closure to be called every day at midnight. Within the closure we will execute a database query to clear a table:
-                                    </p>
-                                    <br>
-                                    <h6>
-                                        app/Scheduling/Tasks/ClearTableTask.php
-                                    </h6>
-                                    <pre>
-                                        <code class="language-php">&lt;?php
+}</code></pre>
+<h3>Defining Schedules</h3>
+<p>You may define all of your scheduled tasks in the schedule method of your application's App\Scheduling\Kernel class. To get started, let's take a look at an example. In this example, we will schedule a closure to be called every day at midnight. Within the closure we will execute a database query to clear a table:</p>
+<h6>app/Scheduling/Tasks/ClearTableTask.php</h6>
+<pre><code class="language-php">&lt;?php
 
 namespace App\Scheduling\Tasks;
 
@@ -1949,16 +795,11 @@ class ClearTableTask
 {
     public function handle(): void
     {
-        DB::table('recent_users')->delete();
+        DB::table('recent_users')-&gt;delete();
     }
-}</code>
-                                    </pre>
-                                    <br>
-                                    <h6>
-                                        app/Scheduling/Kernel.php
-                                    </h6>
-                                    <pre>
-                                        <code class="language-php">&lt;?php
+}</code></pre>
+<h6>app/Scheduling/Kernel.php</h6>
+<pre><code class="language-php">&lt;?php
 
 namespace App\Scheduling;
 
@@ -1969,237 +810,217 @@ class Kernel
 {
     public function tasks(): void
     {
-        (new Scheduler())->call(ClearTableTask::class)->daily();
+        (new Scheduler())-&gt;call(ClearTableTask::class)-&gt;daily();
     }
-}</code>
-                                    </pre>
-                                </div>
-
-                                <div>
-                                    <h3>
-                                        <span class="red2-text">#</span> Schedule Frequency Options
-                                    </h3>
-                                    <p>
-                                        We've already seen a few examples of how you may configure a task to run at specified intervals. However, there are many more task schedule frequencies that you may assign to a task:
-                                    </p>
-                                    <br>
-
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                            <tr>
-                                                <th>Method</th>
-                                                <th>Description</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td><code>-&gt;cron('* * * * *');</code></td>
-                                                <td>Run the task on a custom cron schedule</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;everyMinute();</code></td>
-                                                <td>Run the task every minute</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;everyTwoMinutes();</code></td>
-                                                <td>Run the task every two minutes</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;everyThreeMinutes();</code></td>
-                                                <td>Run the task every three minutes</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;everyFourMinutes();</code></td>
-                                                <td>Run the task every four minutes</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;everyFiveMinutes();</code></td>
-                                                <td>Run the task every five minutes</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;everyTenMinutes();</code></td>
-                                                <td>Run the task every ten minutes</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;everyFifteenMinutes();</code></td>
-                                                <td>Run the task every fifteen minutes</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;everyThirtyMinutes();</code></td>
-                                                <td>Run the task every thirty minutes</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;hourly();</code></td>
-                                                <td>Run the task every hour</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;hourlyAt(17);</code></td>
-                                                <td>Run the task every hour at 17 minutes past the hour</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;everyOddHour();</code></td>
-                                                <td>Run the task every odd hour</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;everyTwoHours();</code></td>
-                                                <td>Run the task every two hours</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;everyThreeHours();</code></td>
-                                                <td>Run the task every three hours</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;everyFourHours();</code></td>
-                                                <td>Run the task every four hours</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;everySixHours();</code></td>
-                                                <td>Run the task every six hours</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;daily();</code></td>
-                                                <td>Run the task every day at midnight</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;dailyAt('13:00');</code></td>
-                                                <td>Run the task every day at 13:00</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;twiceDaily(1, 13);</code></td>
-                                                <td>Run the task daily at 1:00 &amp; 13:00</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;twiceDailyAt(1, 13, 15);</code></td>
-                                                <td>Run the task daily at 1:15 &amp; 13:15</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;weekly();</code></td>
-                                                <td>Run the task every Sunday at 00:00</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;weeklyOn(1, '8:00');</code></td>
-                                                <td>Run the task every week on Monday at 8:00</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;monthly();</code></td>
-                                                <td>Run the task on the first day of every month at 00:00</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;monthlyOn(4, '15:00');</code></td>
-                                                <td>Run the task every month on the 4th at 15:00</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;twiceMonthly(1, 16, '13:00');</code></td>
-                                                <td>Run the task monthly on the 1st and 16th at 13:00</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;lastDayOfMonth('15:00');</code></td>
-                                                <td>Run the task on the last day of the month at 15:00</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;quarterly();</code></td>
-                                                <td>Run the task on the first day of every quarter at 00:00</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;yearly();</code></td>
-                                                <td>Run the task on the first day of every year at 00:00</td>
-                                            </tr>
-                                            <tr>
-                                                <td><code>-&gt;yearlyOn(6, 1, '17:00');</code></td>
-                                                <td>Run the task every year on June 1st at 17:00</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-
-                    </div><!--//content-inner-->
-                </div><!--//doc-content-->
-                <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
-                    <div id="doc-nav" class="doc-nav">
-                        <nav id="doc-menu" class="nav doc-menu flex-column sticky">
-                            <li class="nav-item">
-                                <a class="nav-link scrollto">Getting Started</a>
-                            </li>
-                            <nav class="nav doc-sub-menu nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#introduction">Introduction</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#way-fomo">Way Fomo ?</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#first-fomo-project">First Fomo Project</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#mr-engineer">Mr. Engineer</a>
-                                </li>
-                            </nav>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto">The Basics</a>
-                            </li>
-                            <nav class="nav doc-sub-menu nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#routing">Routing</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#controller">Controller</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#middleware">Middleware</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#request">Request</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#response">Response</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#validation">Validation</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#log">Log</a>
-                                </li>
-                            </nav>
-
-                            <li class="nav-item">
-                                <a class="nav-link scrollto">A little deeper</a>
-                            </li>
-                            <nav class="nav doc-sub-menu nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#cache">Cache</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#helpers">Helpers</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#http-client">HTTP client</a>
-                                </li>
-                            </nav>
-                            <li class="nav-item">
-                                <a class="nav-link scrollto">Server</a>
-                            </li>
-                            <nav class="nav doc-sub-menu nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#http-server">HTTP</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#queue-server">Queue</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link scrollto" href="#scheduling-server">Scheduling</a>
-                                </li>
-                            </nav>
-
-                        </nav><!--//doc-menu-->
-
-                    </div>
-                </div><!--//doc-sidebar-->
-            </div><!--//doc-body-->
+}</code></pre>
+<h3>Schedule Frequency Options</h3>
+<p>We've already seen a few examples of how you may configure a task to run at specified intervals. However, there are many more task schedule frequencies that you may assign to a task:</p>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-&gt;cron('* * * * *');</code></td>
+<td>Run the task on a custom cron schedule</td>
+</tr>
+<tr>
+<td><code>-&gt;everyMinute();</code></td>
+<td>Run the task every minute</td>
+</tr>
+<tr>
+<td><code>-&gt;everyTwoMinutes();</code></td>
+<td>Run the task every two minutes</td>
+</tr>
+<tr>
+<td><code>-&gt;everyThreeMinutes();</code></td>
+<td>Run the task every three minutes</td>
+</tr>
+<tr>
+<td><code>-&gt;everyFourMinutes();</code></td>
+<td>Run the task every four minutes</td>
+</tr>
+<tr>
+<td><code>-&gt;everyFiveMinutes();</code></td>
+<td>Run the task every five minutes</td>
+</tr>
+<tr>
+<td><code>-&gt;everyTenMinutes();</code></td>
+<td>Run the task every ten minutes</td>
+</tr>
+<tr>
+<td><code>-&gt;everyFifteenMinutes();</code></td>
+<td>Run the task every fifteen minutes</td>
+</tr>
+<tr>
+<td><code>-&gt;everyThirtyMinutes();</code></td>
+<td>Run the task every thirty minutes</td>
+</tr>
+<tr>
+<td><code>-&gt;hourly();</code></td>
+<td>Run the task every hour</td>
+</tr>
+<tr>
+<td><code>-&gt;hourlyAt(17);</code></td>
+<td>Run the task every hour at 17 minutes past the hour</td>
+</tr>
+<tr>
+<td><code>-&gt;everyOddHour();</code></td>
+<td>Run the task every odd hour</td>
+</tr>
+<tr>
+<td><code>-&gt;everyTwoHours();</code></td>
+<td>Run the task every two hours</td>
+</tr>
+<tr>
+<td><code>-&gt;everyThreeHours();</code></td>
+<td>Run the task every three hours</td>
+</tr>
+<tr>
+<td><code>-&gt;everyFourHours();</code></td>
+<td>Run the task every four hours</td>
+</tr>
+<tr>
+<td><code>-&gt;everySixHours();</code></td>
+<td>Run the task every six hours</td>
+</tr>
+<tr>
+<td><code>-&gt;daily();</code></td>
+<td>Run the task every day at midnight</td>
+</tr>
+<tr>
+<td><code>-&gt;dailyAt('13:00');</code></td>
+<td>Run the task every day at 13:00</td>
+</tr>
+<tr>
+<td><code>-&gt;twiceDaily(1, 13);</code></td>
+<td>Run the task daily at 1:00 &amp; 13:00</td>
+</tr>
+<tr>
+<td><code>-&gt;twiceDailyAt(1, 13, 15);</code></td>
+<td>Run the task daily at 1:15 &amp; 13:15</td>
+</tr>
+<tr>
+<td><code>-&gt;weekly();</code></td>
+<td>Run the task every Sunday at 00:00</td>
+</tr>
+<tr>
+<td><code>-&gt;weeklyOn(1, '8:00');</code></td>
+<td>Run the task every week on Monday at 8:00</td>
+</tr>
+<tr>
+<td><code>-&gt;monthly();</code></td>
+<td>Run the task on the first day of every month at 00:00</td>
+</tr>
+<tr>
+<td><code>-&gt;monthlyOn(4, '15:00');</code></td>
+<td>Run the task every month on the 4th at 15:00</td>
+</tr>
+<tr>
+<td><code>-&gt;twiceMonthly(1, 16, '13:00');</code></td>
+<td>Run the task monthly on the 1st and 16th at 13:00</td>
+</tr>
+<tr>
+<td><code>-&gt;lastDayOfMonth('15:00');</code></td>
+<td>Run the task on the last day of the month at 15:00</td>
+</tr>
+<tr>
+<td><code>-&gt;quarterly();</code></td>
+<td>Run the task on the first day of every quarter at 00:00</td>
+</tr>
+<tr>
+<td><code>-&gt;yearly();</code></td>
+<td>Run the task on the first day of every year at 00:00</td>
+</tr>
+<tr>
+<td><code>-&gt;yearlyOn(6, 1, '17:00');</code></td>
+<td>Run the task every year on June 1st at 17:00</td>
+</tr>
+</tbody>
+</table>			</div>
+		</section>
+	</div><!--//content-inner-->
+</div><!--//doc-content-->
+<div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+	<div id="doc-nav" class="doc-nav">
+		<nav id="doc-menu" class="nav doc-menu flex-column sticky">
+							<li class="nav-item">
+					<a class="nav-link scrollto" href="#getting-started">Getting Started</a>
+				</li>
+									<nav class="nav doc-sub-menu nav flex-column">
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#introduction">Introduction</a>
+							</li>
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#why-fomo">Why Fomo?</a>
+							</li>
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#first-fomo-project">First Fomo Project</a>
+							</li>
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#mr-engineer">Mr. Engineer</a>
+							</li>
+											</nav>
+											<li class="nav-item">
+					<a class="nav-link scrollto" href="#the-basics">The Basics</a>
+				</li>
+									<nav class="nav doc-sub-menu nav flex-column">
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#routing">Routing</a>
+							</li>
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#controller">Controller</a>
+							</li>
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#middleware">Middleware</a>
+							</li>
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#request">Request</a>
+							</li>
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#response">Response</a>
+							</li>
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#validation">Validation</a>
+							</li>
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#log">Log</a>
+							</li>
+											</nav>
+											<li class="nav-item">
+					<a class="nav-link scrollto" href="#a-little-deeper">A Little Deeper</a>
+				</li>
+									<nav class="nav doc-sub-menu nav flex-column">
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#cache">Cache</a>
+							</li>
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#helpers">Helpers</a>
+							</li>
+											</nav>
+											<li class="nav-item">
+					<a class="nav-link scrollto" href="#server">Server</a>
+				</li>
+									<nav class="nav doc-sub-menu nav flex-column">
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#http-client">HTTP Client</a>
+							</li>
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#http-server">HTTP Server</a>
+							</li>
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#queue-server">Queue Server</a>
+							</li>
+													<li class="nav-item">
+								<a class="nav-link scrollto" href="#scheduling-server">Scheduling Server</a>
+							</li>
+											</nav>
+									</nav><!--//doc-menu-->
+	</div>
+</div><!--//doc-sidebar-->			</div><!--//doc-body-->
         </div><!--//container-->
     </div><!--//doc-wrapper-->
 
@@ -2222,6 +1043,10 @@ class Kernel
 <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/plugins/highlight/highlight.min.js"></script>
+<script src="assets/plugins/highlight/languages/bash.min.js"></script>
+<script src="assets/plugins/highlight/languages/xml.min.js"></script>
+<script src="assets/plugins/highlight/languages/php.min.js"></script>
+<script src="assets/plugins/highlight/languages/javascript.min.js"></script>
 <script>hljs.highlightAll();</script>
 
 </body>
