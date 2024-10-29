@@ -883,114 +883,174 @@ $cache->put('key' , 'value');
 
 Fomo includes a variety of global helper PHP functions. Many of these functions are used by the framework itself; however, you are free to use them in your own applications if you find them convenient.
 
-  
-  
+### Application Helpers
 
-###### # appPath()
-
-The appPath function returns the fully qualified path to your application's app directory. You may also use the appPath function to generate a fully qualified path to a file relative to the application directory:
-
-```php
-$path = appPath();
-
-$path = appPath('Controllers/Controller.php');
-```
-
-###### # basePath()
+#### # basePath(string $path = null)
 
 The basePath function returns the fully qualified path to your application's root directory. You may also use the basePath function to generate a fully qualified path to a given file relative to the project root directory:
 
 ```php
+// pulls from PROJECT_PATH
+// PROJECT_PATH is defined in `engineer` as `realpath('./');`
+// Ex: /home/user/projects/my-project/ as directory
 $path = basePath();
+// Returns: /home/user/projects/my-project/
+// Note: There is a trailing slash
 
 $path = basePath('vendor/bin');
+// Returns: /home/user/projects/my-project/vendor/bin
+// Note: If you don't define a trailing slash, there won't be one!
 ```
 
-###### # configPath()
+#### # appPath(string $path = null)
+
+The appPath function returns the fully qualified path to your application's app directory. You may also use the appPath function to generate a fully qualified path to a file relative to the application directory:
+
+```php
+// Ex: /home/user/projects/my-project/ as directory
+$path = appPath();
+// Returns: /home/user/projects/my-project/app/
+
+$path = appPath('Controllers/Controller.php');
+// Returns: /home/user/projects/my-project/app/Controllers/Controller.php
+```
+
+
+#### # configPath(string $path = null)
 
 The configPath function returns the fully qualified path to your application's config directory. You may also use the configPath function to generate a fully qualified path to a given file within the application's configuration directory:
 
 ```php
+// Ex: /home/user/projects/my-project/ as directory
 $path = configPath();
+// Returns: /home/user/projects/my-project/config/
 
 $path = configPath('app.php');
+// Returns: /home/user/projects/my-project/config/app.php
 ```
 
-###### # databasePath()
+#### # databasePath(string $path = null)
 
 The databasePath function returns the fully qualified path to your application's database directory. You may also use the databasePath function to generate a fully qualified path to a given file within the database directory:
 
 ```php
+// Ex: /home/user/projects/my-project/ as directory
 $path = databasePath();
+// Returns: /home/user/projects/my-project/database/
 
 $path = databasePath('Factory.php');
+// Returns: /home/user/projects/my-project/database/Factory.php
 ```
 
-###### # languagePath()
+#### # languagePath(string $path = null)
 
 The languagePath function returns the fully qualified path to your application's language directory. You may also use the languagePath function to generate a fully qualified path to a given file within the directory:
 
 ```php
+// Ex: /home/user/projects/my-project/ as directory
 $path = languagePath();
+// Returns: /home/user/projects/my-project/language/
 
 $path = languagePath('validation/en');
+// Returns: /home/user/projects/my-project/language/validation/en
 ```
 
-###### # storagePath()
+#### # storagePath(string $path = null)
 
 The storagePath function returns the fully qualified path to your application's storage directory. You may also use the storagePath function to generate a fully qualified path to a given file within the directory:
 
 ```php
+// Ex: /home/user/projects/my-project/ as directory
 $path = storagePath();
+// Returns: /home/user/projects/my-project/storage/
 
 $path = storagePath('logs/Fomo.log');
+// Returns: /home/user/projects/my-project/storage/logs/Fomo.log
 ```
 
-###### # config()
+#### # config(string $key, $default = null)
 
 The config function gets the value of a configuration variable. The configuration values may be accessed using "dot" syntax, which includes the name of the file and the option you wish to access. A default value may be specified and is returned if the configuration option does not exist:
 
 ```php
-$value = config('app.timezone');
+// from app/config/app.php
+return [
+	'timezone' => 'UTC',
+];
 
+// When pulling the value within your application
+$value = config('app.timezone');
+// Returns: UTC
+
+$default = 'GMT';
 $value = config('app.timezone', $default);
+// Returns: UTC, but if the value is not set, it will return GMT
 ```
 
-###### # response()
+#### # request()
+
+The request function returns an instance of the current request from the request factory:
+
+```php
+// Full request object
+$request = request();
+
+// URL Path
+$path = request()->path();
+
+// IP
+$ip = request()->ip();
+
+// Get a URL parameter
+// Ex: example.com/users/1?name=John
+$name = request()->get('name');
+// Returns; John
+```
+
+#### # response()
 
 The response function creates a response instance or obtains an instance of the response factory:
 
 ```php
-return response('Hello World', 200, $headers);
+$html = '<html><body><h1>Hello, World!</h1></body></html>';
+$statusCode = 200;
+// Automatically sets the Content-Type header to text/html; charset=utf-8
+return response()->html($html, $statusCode);
 
-return response()->json(['foo' => 'bar'], 200, $headers);
+// Automatically sets the Content-Type header to application/json
+return response()->json(['foo' => 'bar'], 200);
+
+// or with custom headers
+return response()
+	->withHeaders(['X-Header' => 'Value'])
+	->json(['foo' => 'bar'], 200);
 ```
 
-###### # auth()
+#### # auth()
 
-The auth function returns an authenticator instance. You may use it as an alternative to the Auth class:
+The auth function returns an authenticator instance. You may use it as an alternative to the `Auth` class:
 
 ```php
 $user = auth()->user();
 ```
 
-###### # elasticsearch()
+#### # elasticsearch()
 
-The elasticsearch function returns an elasticsearch instance. You may use it as an alternative to the Elasticsearch class:
+The elasticsearch function returns an elasticsearch instance. You may use it as a shortcut to the Elasticsearch class:
 
 ```php
-return elasticsearch()->msearch(/* set your query */);
+$searchResults = elasticsearch()->msearch(/* set your query */);
 ```
 
-###### # redis()
+#### # redis()
 
 The redis function returns an redis instance. You may use it as an alternative to the Redis class:
 
 ```php
-return redis()->get(/*set your key */);
+$myCachedRedisValue = redis()->get(/*get your key */);
 ```
 
-###### # mail()
+#### # mail()
 
 The mail function returns an mail instance. You may use it as an alternative to the Mail class:
 
@@ -998,7 +1058,24 @@ The mail function returns an mail instance. You may use it as an alternative to 
 mail()->body(/*set your body */)->send();
 ```
 
-###### # env()
+#### # cache()
+
+The cache function returns a cache instance. You may use it as an alternative to the Cache class:
+
+```php
+$myCachedValue = cache()->get(/*get your key */);
+```
+
+#### # validation()
+
+The validation function returns a validation instance. You may use it as an alternative to the Validation class:
+
+```php
+$hasError = validation($myValidationData, $myRules)->hasError();
+```
+
+
+#### # env(mixed $key, mixed $default = null)
 
 The env function retrieves the value of an environment variable or returns a default value:
 
@@ -1006,6 +1083,96 @@ The env function retrieves the value of an environment variable or returns a def
 $env = env('APP_ENV');
 
 $env = env('APP_ENV', 'production');
+```
+
+### Swoole Helpers
+
+#### # cpuCount()
+
+The cpuCount function returns the number of CPU cores available on the server:
+
+```php
+$cores = cpuCount();
+```
+
+#### # getMasterProcessId()
+
+The getMasterProcessId function returns the master process ID:
+
+```php
+$masterId = getMasterProcessId();
+```
+
+#### # getWorkerProcessIds()
+
+The getWorkerProcessIds function returns an array of worker process IDs:
+
+```php
+$workerIds = getWorkerProcessIds();
+```
+
+#### # getManagerProcessId()
+
+The getManagerProcessId function returns the manager process ID:
+
+```php
+$managerId = getManagerProcessId();
+```
+
+#### # getWatcherProcessId()
+
+The getWatcherProcessId function returns the watcher process ID:
+
+```php
+$watcherId = getWatcherProcessId();
+```
+
+#### # getFactoryProcessId()
+
+The getFactoryProcessId function returns the factory process ID:
+
+```php
+$factoryId = getFactoryProcessId();
+```
+
+#### # getQueueProcessId()
+
+The getQueueProcessId function returns the queue process ID:
+
+```php
+$queueId = getQueueProcessId();
+```
+
+#### # getSchedulingProcessId()
+
+The getSchedulingProcessId function returns the scheduling process ID:
+
+```php
+$schedulingId = getSchedulingProcessId();
+```
+
+#### # httpServerIsRunning()
+
+The httpServerIsRunning function returns true if the HTTP server is running:
+
+```php
+$is_running = httpServerIsRunning();
+```
+
+#### # queueServerIsRunning()
+
+The queueServerIsRunning function returns true if the queue server is running:
+
+```php
+$is_running = queueServerIsRunning();
+```
+
+#### # schedulingServerIsRunning()
+
+The schedulingServerIsRunning function returns true if the scheduling server is running:
+
+```php
+$is_running = schedulingServerIsRunning();
 ```
 
 # Server

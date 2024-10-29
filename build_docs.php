@@ -6,7 +6,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 require __DIR__ . '/assets/includes/header.html';
 
-$markdown = file_get_contents(__DIR__ . '/docs.md');
+$markdown = file_get_contents(__DIR__ . '/content.md');
 
 // Convert the markdown to HTML
 $Parsedown = new Parsedown();
