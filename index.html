@@ -541,63 +541,159 @@ $cache = new Cache();</code></pre>
 <pre><code class="language-php">$cache-&gt;put('key' , 'value');</code></pre>
 </div></section><section class="doc-section"><h2 class="section-title" id="helpers">Helpers</h2><div class="section-block">
 <p>Fomo includes a variety of global helper PHP functions. Many of these functions are used by the framework itself; however, you are free to use them in your own applications if you find them convenient.</p>
-<h6>appPath()</h6>
-<p>The appPath function returns the fully qualified path to your application's app directory. You may also use the appPath function to generate a fully qualified path to a file relative to the application directory:</p>
-<pre><code class="language-php">$path = appPath();
-
-$path = appPath('Controllers/Controller.php');</code></pre>
-<h6>basePath()</h6>
+<h3>Application Helpers</h3>
+<h4>basePath(string $path = null)</h4>
 <p>The basePath function returns the fully qualified path to your application's root directory. You may also use the basePath function to generate a fully qualified path to a given file relative to the project root directory:</p>
-<pre><code class="language-php">$path = basePath();
+<pre><code class="language-php">// pulls from PROJECT_PATH
+// PROJECT_PATH is defined in `engineer` as `realpath('./');`
+// Ex: /home/user/projects/my-project/ as directory
+$path = basePath();
+// Returns: /home/user/projects/my-project/
+// Note: There is a trailing slash
 
-$path = basePath('vendor/bin');</code></pre>
-<h6>configPath()</h6>
+$path = basePath('vendor/bin');
+// Returns: /home/user/projects/my-project/vendor/bin
+// Note: If you don't define a trailing slash, there won't be one!</code></pre>
+<h4>appPath(string $path = null)</h4>
+<p>The appPath function returns the fully qualified path to your application's app directory. You may also use the appPath function to generate a fully qualified path to a file relative to the application directory:</p>
+<pre><code class="language-php">// Ex: /home/user/projects/my-project/ as directory
+$path = appPath();
+// Returns: /home/user/projects/my-project/app/
+
+$path = appPath('Controllers/Controller.php');
+// Returns: /home/user/projects/my-project/app/Controllers/Controller.php</code></pre>
+<h4>configPath(string $path = null)</h4>
 <p>The configPath function returns the fully qualified path to your application's config directory. You may also use the configPath function to generate a fully qualified path to a given file within the application's configuration directory:</p>
-<pre><code class="language-php">$path = configPath();
+<pre><code class="language-php">// Ex: /home/user/projects/my-project/ as directory
+$path = configPath();
+// Returns: /home/user/projects/my-project/config/
 
-$path = configPath('app.php');</code></pre>
-<h6>databasePath()</h6>
+$path = configPath('app.php');
+// Returns: /home/user/projects/my-project/config/app.php</code></pre>
+<h4>databasePath(string $path = null)</h4>
 <p>The databasePath function returns the fully qualified path to your application's database directory. You may also use the databasePath function to generate a fully qualified path to a given file within the database directory:</p>
-<pre><code class="language-php">$path = databasePath();
+<pre><code class="language-php">// Ex: /home/user/projects/my-project/ as directory
+$path = databasePath();
+// Returns: /home/user/projects/my-project/database/
 
-$path = databasePath('Factory.php');</code></pre>
-<h6>languagePath()</h6>
+$path = databasePath('Factory.php');
+// Returns: /home/user/projects/my-project/database/Factory.php</code></pre>
+<h4>languagePath(string $path = null)</h4>
 <p>The languagePath function returns the fully qualified path to your application's language directory. You may also use the languagePath function to generate a fully qualified path to a given file within the directory:</p>
-<pre><code class="language-php">$path = languagePath();
+<pre><code class="language-php">// Ex: /home/user/projects/my-project/ as directory
+$path = languagePath();
+// Returns: /home/user/projects/my-project/language/
 
-$path = languagePath('validation/en');</code></pre>
-<h6>storagePath()</h6>
+$path = languagePath('validation/en');
+// Returns: /home/user/projects/my-project/language/validation/en</code></pre>
+<h4>storagePath(string $path = null)</h4>
 <p>The storagePath function returns the fully qualified path to your application's storage directory. You may also use the storagePath function to generate a fully qualified path to a given file within the directory:</p>
-<pre><code class="language-php">$path = storagePath();
+<pre><code class="language-php">// Ex: /home/user/projects/my-project/ as directory
+$path = storagePath();
+// Returns: /home/user/projects/my-project/storage/
 
-$path = storagePath('logs/Fomo.log');</code></pre>
-<h6>config()</h6>
+$path = storagePath('logs/Fomo.log');
+// Returns: /home/user/projects/my-project/storage/logs/Fomo.log</code></pre>
+<h4>config(string $key, $default = null)</h4>
 <p>The config function gets the value of a configuration variable. The configuration values may be accessed using &quot;dot&quot; syntax, which includes the name of the file and the option you wish to access. A default value may be specified and is returned if the configuration option does not exist:</p>
-<pre><code class="language-php">$value = config('app.timezone');
+<pre><code class="language-php">// from app/config/app.php
+return [
+    'timezone' =&gt; 'UTC',
+];
 
-$value = config('app.timezone', $default);</code></pre>
-<h6>response()</h6>
+// When pulling the value within your application
+$value = config('app.timezone');
+// Returns: UTC
+
+$default = 'GMT';
+$value = config('app.timezone', $default);
+// Returns: UTC, but if the value is not set, it will return GMT</code></pre>
+<h4>request()</h4>
+<p>The request function returns an instance of the current request from the request factory:</p>
+<pre><code class="language-php">// Full request object
+$request = request();
+
+// URL Path
+$path = request()-&gt;path();
+
+// IP
+$ip = request()-&gt;ip();
+
+// Get a URL parameter
+// Ex: example.com/users/1?name=John
+$name = request()-&gt;get('name');
+// Returns; John</code></pre>
+<h4>response()</h4>
 <p>The response function creates a response instance or obtains an instance of the response factory:</p>
-<pre><code class="language-php">return response('Hello World', 200, $headers);
+<pre><code class="language-php">$html = '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello, World!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;';
+$statusCode = 200;
+// Automatically sets the Content-Type header to text/html; charset=utf-8
+return response()-&gt;html($html, $statusCode);
 
-return response()-&gt;json(['foo' =&gt; 'bar'], 200, $headers);</code></pre>
-<h6>auth()</h6>
-<p>The auth function returns an authenticator instance. You may use it as an alternative to the Auth class:</p>
+// Automatically sets the Content-Type header to application/json
+return response()-&gt;json(['foo' =&gt; 'bar'], 200);
+
+// or with custom headers
+return response()
+    -&gt;withHeaders(['X-Header' =&gt; 'Value'])
+    -&gt;json(['foo' =&gt; 'bar'], 200);</code></pre>
+<h4>auth()</h4>
+<p>The auth function returns an authenticator instance. You may use it as an alternative to the <code>Auth</code> class:</p>
 <pre><code class="language-php">$user = auth()-&gt;user();</code></pre>
-<h6>elasticsearch()</h6>
-<p>The elasticsearch function returns an elasticsearch instance. You may use it as an alternative to the Elasticsearch class:</p>
-<pre><code class="language-php">return elasticsearch()-&gt;msearch(/* set your query */);</code></pre>
-<h6>redis()</h6>
+<h4>elasticsearch()</h4>
+<p>The elasticsearch function returns an elasticsearch instance. You may use it as a shortcut to the Elasticsearch class:</p>
+<pre><code class="language-php">$searchResults = elasticsearch()-&gt;msearch(/* set your query */);</code></pre>
+<h4>redis()</h4>
 <p>The redis function returns an redis instance. You may use it as an alternative to the Redis class:</p>
-<pre><code class="language-php">return redis()-&gt;get(/*set your key */);</code></pre>
-<h6>mail()</h6>
+<pre><code class="language-php">$myCachedRedisValue = redis()-&gt;get(/*get your key */);</code></pre>
+<h4>mail()</h4>
 <p>The mail function returns an mail instance. You may use it as an alternative to the Mail class:</p>
 <pre><code class="language-php">mail()-&gt;body(/*set your body */)-&gt;send();</code></pre>
-<h6>env()</h6>
+<h4>cache()</h4>
+<p>The cache function returns a cache instance. You may use it as an alternative to the Cache class:</p>
+<pre><code class="language-php">$myCachedValue = cache()-&gt;get(/*get your key */);</code></pre>
+<h4>validation()</h4>
+<p>The validation function returns a validation instance. You may use it as an alternative to the Validation class:</p>
+<pre><code class="language-php">$hasError = validation($myValidationData, $myRules)-&gt;hasError();</code></pre>
+<h4>env(mixed $key, mixed $default = null)</h4>
 <p>The env function retrieves the value of an environment variable or returns a default value:</p>
 <pre><code class="language-php">$env = env('APP_ENV');
 
 $env = env('APP_ENV', 'production');</code></pre>
+<h3>Swoole Helpers</h3>
+<h4>cpuCount()</h4>
+<p>The cpuCount function returns the number of CPU cores available on the server:</p>
+<pre><code class="language-php">$cores = cpuCount();</code></pre>
+<h4>getMasterProcessId()</h4>
+<p>The getMasterProcessId function returns the master process ID:</p>
+<pre><code class="language-php">$masterId = getMasterProcessId();</code></pre>
+<h4>getWorkerProcessIds()</h4>
+<p>The getWorkerProcessIds function returns an array of worker process IDs:</p>
+<pre><code class="language-php">$workerIds = getWorkerProcessIds();</code></pre>
+<h4>getManagerProcessId()</h4>
+<p>The getManagerProcessId function returns the manager process ID:</p>
+<pre><code class="language-php">$managerId = getManagerProcessId();</code></pre>
+<h4>getWatcherProcessId()</h4>
+<p>The getWatcherProcessId function returns the watcher process ID:</p>
+<pre><code class="language-php">$watcherId = getWatcherProcessId();</code></pre>
+<h4>getFactoryProcessId()</h4>
+<p>The getFactoryProcessId function returns the factory process ID:</p>
+<pre><code class="language-php">$factoryId = getFactoryProcessId();</code></pre>
+<h4>getQueueProcessId()</h4>
+<p>The getQueueProcessId function returns the queue process ID:</p>
+<pre><code class="language-php">$queueId = getQueueProcessId();</code></pre>
+<h4>getSchedulingProcessId()</h4>
+<p>The getSchedulingProcessId function returns the scheduling process ID:</p>
+<pre><code class="language-php">$schedulingId = getSchedulingProcessId();</code></pre>
+<h4>httpServerIsRunning()</h4>
+<p>The httpServerIsRunning function returns true if the HTTP server is running:</p>
+<pre><code class="language-php">$is_running = httpServerIsRunning();</code></pre>
+<h4>queueServerIsRunning()</h4>
+<p>The queueServerIsRunning function returns true if the queue server is running:</p>
+<pre><code class="language-php">$is_running = queueServerIsRunning();</code></pre>
+<h4>schedulingServerIsRunning()</h4>
+<p>The schedulingServerIsRunning function returns true if the scheduling server is running:</p>
+<pre><code class="language-php">$is_running = schedulingServerIsRunning();</code></pre>
 </div></section><section class="doc-section"><h1 class="section-title" id="server">Server</h1><div class="section-block">
 </div></section><section class="doc-section"><h2 class="section-title" id="http-client">HTTP Client</h2><div class="section-block">
 <p>Fomo provides an expressive, minimal API around the Guzzle HTTP client, allowing you to quickly make outgoing HTTP requests to communicate with other web applications. Fomo's wrapper around Guzzle is focused on its most common use cases and a wonderful developer experience.</p>
